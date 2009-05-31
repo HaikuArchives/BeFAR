@@ -1,0 +1,5 @@
+-rw-r--r--   1 baron    users      250180 Sep 20 08:37 udv_screen.jpg  
+-rw-------   1 baza     users         188 Oct 19 17:45 .bash_history 
+drwxr-xr-x  10 root     root         4096 Oct 27 19:18 .. 
+         |9   |14       |24              |41  |46|49  |54
+          |10
