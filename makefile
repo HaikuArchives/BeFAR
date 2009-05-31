@@ -164,6 +164,14 @@ DRIVER_PATH =
 ## include the makefile-engine
 include $(BUILDHOME)/etc/makefile-engine
 
+DICTS=	BeFar_Dict_Eng.dict \
+		BeFar_Dict_French.dict \
+		BeFar_Dict_Russia.dict
 
-%.rsrc : %.rdef
-	rc -o $@ $< 
+$(OBJ_DIR)/$(DICTS):
+	for i in $(DICTS); do \
+		cp $$i $(OBJ_DIR)/ ; \
+	done 
+
+default: $(OBJ_DIR)/$(DICTS)
+
