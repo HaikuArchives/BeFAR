@@ -1,0 +1,329 @@
+// English localisation |
+// By Baza. Jule 2000|
+///////////////////////////
+
+////////   volume dialog |
+0||Select volume
+
+//////// top menu|
+1||Left
+2||Common
+3||Right
+
+////////  top_menu_common|
+4||Main setup...
+5||Empty trash
+6||Compare folders
+7||Save setup
+8||Load setup
+9||Set setup to default
+10||Save palette
+11||Load palette
+42||Select language
+12||About...
+13||Quit
+
+///////// COMMON MESSAGES|
+14||Ok
+15||Cancel
+16||Yes
+17||No
+53||file
+52||Search
+58||Name
+61|Go to|Go to
+62|Dir|Dir
+65||Type
+66||Value
+67||Error
+70||Close
+102||Warning
+104||Rename
+106||View
+107||Edit
+108||Copy
+109||Move
+121||Path
+134||Copy to
+135||Special
+136||Move to
+137||Question
+187|Target file|Target file
+188|Script name|Script name
+189|In folder|In folder
+190|Arguments|Arguments
+215|'Skip'|Skip
+216|'Try again'|Try again
+223|'Owerwrite'|Owerwrite
+224|'Cancel all'|Cancel all
+231|'Create'|Create
+232|'Delete'|Delete
+258|'Owerwrite all'|Owerwrite all
+260|'Skip all errors'|Skip all errors
+261|'Append'|Append
+
+////////  vertical menu|
+18||Sort by name
+19||Sort by size
+20||Sort by date
+21||Sort by type
+22||Sort by ext
+23||Show/Hide icons
+24||Full mode
+25||Cols Mode
+26||Panel setup...
+
+//////// vertical_menu for files panel |
+27||Search...
+28||Change case...
+29||Tracker Add-Ons
+30||Show info
+31||Set opposite path to my
+32||Go to...
+33||Refresh
+34||Show attributes...
+35||Make SH-link...
+
+//////// PANEL|
+// column headers|
+36||Name
+37||Type
+38||Size
+39||Date
+40| bytes in | bytes in 
+41| files | files 
+122||<dir>
+123||Are you crazy? File can`t has empty name
+124||Invert selection
+125||Set selection
+126||Unset selection
+127||Mask
+128||Folder also
+129||Panel setup
+130||Show icons
+131||Show dates
+132||Show sizes
+133||Show types
+180||Create folder
+138||Delete files?
+139||Sorry, but panel is empty
+140||From
+141||To
+//
+
+////////   SELECT LANGUAGE|
+43||Select dictionary_file
+
+////////  TEXT VIEWER|s
+44|Short 'position'|pos
+45|Short 'column'|col
+46|Short 'code page'|cp
+47|Short 'Show special chars'|ShowSpec
+48|Short 'Hide special chars'|HideSpec
+49||Next
+50||Close
+51||Code page
+52||Could not find the string
+277|"Search text"|Search text
+278|"Text:"|Text:
+279|"Case sensitive"|Case sensitive
+
+// FILES SEARCH|
+54||File name
+55||By text
+56||from current folder
+57||on Volumes (use Ins for select)
+59||Size/Type
+60||Search in progress...
+63||Searching finished. Founded
+64||files
+
+// ATTR_DIALOG|
+68||can`t open file; error :
+69||File attributes
+
+// MAIN SETUP|
+71||Main setup
+72||Colors and fonts
+73||File operations setup
+74||Debug setup
+
+83||Ask before exit
+84||Vol.dialog: show home,desktop,boot
+85||Vol.dialog: show folder-stack
+86||Vol.dialog: show icons
+87||Panel: show path_icon
+88||Panel: use backspace
+89||Panel: return to current folder
+90||Command line : show path
+91||Tracker Add-Ons menu : show icons
+92||Search : setup : show volumes icons
+93||Setup auto saving
+
+// FONTS SETUP|
+75||Anti aliasing
+78||Font : Panel
+79||Font : Dialog
+80||Font : Mono
+81||Font : Command prompt
+82||Flags
+
+// SETUP>FILE OPERATIONS|
+94||Taskdialog: show after new task
+95||Deselect after coping
+96||Deselect after move
+97||Ask before files deleting
+98||Ask before copy
+
+// FILES PANEL|
+99||Loading
+100|' from '| from 
+101||sorry, but path_history is empty
+103||MkLink
+105||To void
+110||MkDir
+111||To trash
+112||I can`t make folder with empty name
+113||Are you crazy ? This volume is READ_ONLY !
+114||Error while MakeDir
+115||To lower
+116||To upper
+117||Capitalise
+118||Capitalise EW
+119||Change file names
+120||Make links to
+185|I can`t run this file|I can`t run this file
+186|Make SH-link|Make SH-link
+191|Set icons from source file|Set icons from source file
+192|Error while folder opening|Error while folder opening
+193|Store folder not found|Store folder not found
+194|This file exists|This file exists
+195|Write permission request denied|Write permission request denied
+196|Error while file creating|Error while file creating
+
+
+// SETUP|/
+181||can`t create file vars.settings,error : 
+174||can`t make settings dir
+175||can`t create setting_file,error : 
+176||can`t load palete_file,error : 
+177||can`t create palete_file,error : 
+
+// SETUP>COLORS|
+182||Panel : Back
+142||Panel : Frame
+143||Panel : Node
+144||Panel : Node : Link
+145||Panel : Node : Dir
+146||Panel : Node : Dir : Link
+147||Panel : Info : Text
+148||Panel : Cursor : Back
+149||Panel : Cursor : Text
+150||Panel : Headers : Text
+151||Panel : FocusPath :  Text
+152||Panel : FocusPath :  Back
+153||Panel : Path : Text
+178||Panel : Path : Back
+154||Panel : Node : Selecting
+155||Panel : Node : Focus&Selecting
+156||Dialog : FocusedBorder
+157||Dialog : UnfocusedBorder
+158||Dialog : Back
+159||Dialog : Text
+160||Dialog : Menu : Item selected
+161||Dialog : Edit : Text
+162||Dialog : Edit : Back
+163||Dialog : Button : Focus
+164||Dialog : Button : Text
+165||Dialog : ProgressBar : Empty
+166||Dialog : ProgressBar : Filled
+167||Red
+168||CommandLine : Back
+169||CommandLine : Text
+170||TextViewer : Status bar : text
+171||TextViewer : Status bar : back
+172||TextViewer : Text
+173||TextViewer : Background : back
+
+183|command`s history is empty|command`s history is empty
+184|can`t run this command|can`t run this command
+
+// INFO_PANEL|/
+198|File information|File information
+199|'Size: '|Size: 
+200|'Date: '|Date: 
+201|'Perms: '|Perms: 
+202|'MIME: '|MIME: 
+202|'Capacity: '|Capacity: 
+203|'Free bytes : '|Free bytes : 
+204|'Removeable '|Removeable 
+205|'Read only'|Read only
+206|'Can`t load info'|Can`t load info
+
+// TASKS|
+207|'Are you crazy ? This volume is READ_ONLY !'|Are you crazy ? This volume is READ_ONLY !
+208|'Sorry, but I can`t give one name to many files '|Sorry, but I can`t give one name to many files 
+209|'Are you crazy ? Name of dest.folder is wrong'|Are you crazy ? Name of dest.folder is wrong
+210|'Create it now!'|Create it now!
+211|'Dest.folder is not existing'|Dest.folder is not existing
+212|'Sorry,i can`t make folder!'|Sorry,i can`t make folder
+213|'Are you crazy ? Destination volume is READ_ONLY !'|Are you crazy ? Destination volume is READ_ONLY !
+214|'can`t make Trash_Dir '|can`t make Trash_Dir 
+217|'This is a system folder. Do you really want to delete it ?'|This is a system folder. Do you really want to delete it ?
+218|'copying files'|copying files
+219|'copying files from /'|copying files from /
+220|' to /'| to /
+221|'Dest.file '|Dest.file 
+222|' is existing'| is existing
+225|' Can`t move file '| Can`t move file 
+226|'Sorry, but I can`t make links and rename them at one time.'|Sorry, but I can`t make links and rename them at one time.
+227|'Sorry, but I can`t make links in folder'|Sorry, but I can`t make links in folder
+227|'Sorry, but I can`t make all links with one name'|Sorry, but I can`t make all links with one name
+228|' exists. Skip it ?'| exists. Skip it ?
+
+// TRACKER ADDONS DIALOG|
+229|'can`t find any tracker add-ons'|can`t find any tracker add-ons
+
+// FTP_PANEL|
+232|'View'|View
+233|'Disconnect'|Disconnect
+234|'MakeDir'|MakeDir
+235|'Ftp:Connected'|Ftp:Connected
+236|'ftp error'|ftp error
+237|'Edit bookmark'|Edit bookmark
+238|'Title:'|Title:
+239|'Host:'|Host:
+240|'User name:'|User name:
+241|'Password:'|Password:
+242|'Folder:'|Folder:
+243|"Ftp bookmarks"|Ftp bookmarks
+244|"can`t make settings dir"|can`t make settings dir
+245|"can`t make setting_file "|can`t make setting_file 
+246|"Ftp:Connecting..."|Ftp:Connecting...
+247|"Ftp:Dir changing..."|Ftp:Dir changing...
+248|"ftp_panel not ready"|ftp_panel not ready
+249|"Ftp:Dir reloading..."|Ftp:Dir reloading...
+250|"Delete this bookmark ?"|Delete this bookmark ?
+251|"Reload folder"|Reload folder
+252|"download from ftp"|download from ftp
+253|"delete file(s) from ftp"|delete file(s) from ftp
+254|"Can`t get name of current dir"|Can`t get name of current dir
+255|"Couldn't connect"|Couldn't connect
+
+// OPERROSTER|
+256|" of "| of 
+257|"Info"|Info
+262|"Copy question"|Copy question
+263|"file "|file 
+264|" exists"| exists
+265|"preparing to process"|preparing to process
+266|" PAUSED "| PAUSED 
+267|"total"|total
+268|"File operations"|File operations
+269|"Pause/Run"|Pause/Run
+270|"Minimize[Esc]"|Minimize[Esc]
+276|"operations progress"|operations progress
+
+271|Load palete|Load palete
+272|Save palete|Save palete
+273|'File name:'|File name:

@@ -1,0 +1,329 @@
+// French localisation |
+// By François Jouen. Juillet 2000|
+// email: fjouen@free.fr|
+///////////////////////////
+
+////////   volume dialog |
+0||Sélectionner le volume
+
+//////// top menu|
+1||Gauche
+2||Général
+3||Droite
+
+////////  top_menu_common|
+4||Configuration...
+5||Vider la corbeille 
+6||Comparer les répertoires
+7||Sauver la configuration
+8||Charger la configuration
+9||Configuration par défaut
+10||Sauver la palette
+11||Charger la palette
+42||Selectionner la langue
+12||Informations ...
+13||Quitter
+
+///////// COMMON MESSAGES|
+14||Valider
+15||Annuler
+16||Oui
+17||Non
+53||Fichier
+52||Chercher
+58||Nom
+61|Aller à|Aller à
+62|Dossier|Dossier
+65||Type
+66||Valeur
+67||Erreur
+70||Fermer
+102||Alerte
+104||Renommer
+106||Visualiser
+107||Editer
+108||Copier
+109||Déplacer
+121||Chemin
+134||Coper vers
+135||Spécial
+136||Déplacer vers
+137||Confirmation
+187|Fichier Destination|Fichier Destination
+188|Nom du script|Nom du script
+189|Dans le Dossier|Dans le Dossier
+190|Arguments|Arguments
+215|'Eviter'|Eviter
+216|'Essayer à nouveau'|Essayer à nouveau
+223|'Ecraser'|Ecraser
+224|'Tout Annuler'|Tout Annuler
+231|'Créer'|Créer
+232|'Supprimer'|Supprimer
+258|'Ecraser Tout'|Ecraser Tout
+260|'Eviter Tout'|Eviter Tout
+261|'Ajouter'|Ajouter
+
+////////  vertical menu|
+18||Trier par nom
+19||Trier par taille
+20||Trier par date
+21||Trier par type
+22||Trier par extension
+23||Afficher/Cacher les icones
+24||Affichage Complet
+25||Affichage en Colonnes
+26||Configuer le volet...
+
+//////// vertical_menu for files Volet |
+27||Chercher...
+28||Changer la police...
+29||Tracker Add-Ons
+30||Information
+31||Synchroniser
+32||Aller à...
+33||Réafficher
+34||Montrer les Attributs...
+35||Créer un lien SH...
+
+//////// Volet|
+// column headers|
+36||Nom
+37||Type
+38||Taille
+39||Date
+40| bytes dans | bytes dans 
+41| fichiers | fichiers 
+122||<dir>
+123||Le fichier doit avoir un nom!
+124||Inverser la sélection
+125||Sélectionner
+126||Désélectionner
+127||Masque
+128||Inclure les répertoires
+129||Configuation du Volet
+130||Afficher les icones
+131||Afficher les dates
+132||Afficher les tailles
+133||Afficher les types
+180||Créer un Dossier
+138||Supprimer le(s) Fichier(s)?
+139||Désolé, le volet est vide
+140||De
+141||Vers
+//
+
+////////   SELECT LANGUAGE|
+43||Choisir un dictionnaire 	
+
+////////  TEXT VIEWER|s
+44|Short 'position'|pos
+45|Short 'colonne'|col
+46|Short 'coder page'|cp
+47|Short 'Afficher les caractères spéciaux'|Afficher
+48|Short 'Cacher les caractères spéciaux'|Cacher
+49||Suivant
+50||Fermer
+51||Code page
+52||Could not find the string
+277|"Texte recherché: "|Texte Recherché
+278|"Texte:"|Texte:
+279|"Case sensitive"|Case sensitive
+
+// FILES SEARCH|
+54||Nom du Fichier
+55||Par texte
+56||A partir du dossier courant
+57||sur les Volumes (touche Ins pour sélectionner)
+59||Taille/Type
+60||Recherche en cours...
+63||Recherche terminée. Trouvé
+64||Fichier(s)
+
+// ATTR_DIALOG|
+68||ouverture du fichier impossible; erreur :
+69||Attributs des fichiers
+
+// MAIN SETUP|
+71||Configuration Générale
+72||Couleurs et Polices
+73||Fichiers
+74||Debogage
+
+83||Confirmer avant de quitter
+84||Volumes: montrer home,desktop,boot
+85||Volumes: montrer la liste des dossiers
+86||Volumes: montrer les icones
+87||Volet: Afficher icones chemin fichiers
+88||Volet: utiliser la touche backspace
+89||Volet: retourner au dossier courant
+90||Ligne de Commande : Afficher le chemin
+91||Tracker Add-Ons menu : Afficher les icones
+92||Chercher : configuation : Afficher les icones des volumes
+93||Sauvegarde automatique de la configuration
+
+// FONTS SETUP|
+75||Anti aliasing
+78||Police : Volet
+79||Police : Dialogue
+80||Police : Mono
+81||Police : Invite de commande
+82||Drapeaux
+
+// SETUP>FILE OPERATIONS|
+94||Tâches: Afficher après chaque nouvelle tâche
+95||Désélectionner après la copie
+96||Désélectionner après le déplacement
+97||Confirmer avant la suppression des fichiers
+98||Confirmer avant la copie des fichiers
+
+// FILES Volet|
+99||Chargement
+100|' à partir '| à partir 
+101||Désolé, l'historique est vide
+103||Lien
+105||To void
+110||Dossier
+111||Poubelle
+112||Donnez un nom pour ce dossier
+113||Le volume est en LECTURE SEULE!
+114||Erreur dans la création du Dossier
+115||Minuscules
+116||Majuscules
+117||Capitaliser
+118||Capitaliser EW
+119||Changer les noms des fichiers
+120||Créer un lien vers
+185|Exécution impossible|Exécution impossible
+186|Créer un lien SH|Créer un lien SH
+191|Charger une icone à partir d'un fichier|Charger une icone à partir d'un fichier
+192|Erreur à l'ouverture du dossier|Erreur à l'ouverture du dossier
+193|Dossier non trouvé |Dossier non trouvé
+194|Ce fichier existe|Ce fichier existe
+195|Ecriture permission requise refusée|Ecriture permission requise refusée
+196|Erreur à la création du fichier|Erreur à la création du fichier
+
+
+// SETUP|/
+181||impossible de créer le fichier vars.settings,erreur : 
+174||impossible de créer le dossier de configuration
+175||impossible de créer le fichier de configuration,erreur : 
+176||impossible de charger le fichier des palettes,erreur : 
+177||impossible de créer le fichier des palettes : 
+
+// SETUP>COLORS|
+182||Volet : Fond
+142||Volet : Cadre
+143||Volet : Node
+144||Volet : Node : Lien
+145||Volet : Node : Dossier
+146||Volet : Node : Dossier : Lien
+147||Volet : Info : Texte
+148||Volet : Curseur : Fond
+149||Volet : Curseur : Texte
+150||Volet : Entête : Texte
+151||Volet : Chemin actif :  Texte
+152||Volet : Chemin actif :  Fond
+153||Volet : Chemin  : Texte
+178||Volet : Chemin  : Fond
+154||Volet : Node : Séléctionner
+155||Volet : Node : Actif et Séléctionné
+156||Dialogue : Bordure Active
+157||Dialogue : Bordure Inactive
+158||Dialogue : Fond
+159||Dialogue : Texte
+160||Dialogue : Menu : Item séléctionné
+161||Dialogue : Edition : Texte
+162||Dialogue : Edition : Fond
+163||Dialogue : Bouton : Actif
+164||Dialogue : Bouton : Text
+165||Dialogue : Barre d'Avancement : Vide
+166||Dialogue : Barre d'Avancement : Remplie
+167||Rouge
+168||Ligne de commande : Fond
+169||Ligne de commande : Texte
+170||Editeur : Barre d'Etat: texte
+171||Editeur : Barre d'Etat : Fond
+172||Editeur : Texte
+173||Editeur : Background : Fond
+
+183|L'historique des commandes est vide|L'historique des commandes est vide
+184|impossible d'exécuter cette commande|impossible d'exécuter cette commande
+
+// INFO_Volet|/
+198|Informations Fichiers|Informations Fichiers
+199|'Taille: '|Taille: 
+200|'Date: '|Date: 
+201|'Permissions: '|Permissions: 
+202|'MIME: '|MIME: 
+202|'Capacié: '|Capacité: 
+203|'Bytes libres : '|Bytes libres : 
+204|'Mobile '|Mobile 
+205|'Lecture seule'|Lecture seule
+206|'Impossible de charger info'|Impossible de charger info
+
+// TASKS|
+207|'Le volume est en LECTURE SEULE!'|Le volume est en LECTURE SEULE!
+208|'Désolé, les fichiers ne peuvent pas avoir le même nom '|Désolé, les fichiers ne peuvent pas avoir le même nom 
+209|'Le nom du dossier destination est incorrect'|Le nom du dossier destination est incorrect
+210|'Créer maintenant!'|Créer maintenant!
+211|'Le dossier destination n'existe pas'|Le dossier destination n'existe pas
+212|'Désolé, création du dossier impossible!'|Désolé, création du dossier impossible
+213|'Le volume est en LECTURE SEULE!'|Le volume est en LECTURE SEULE! !
+214|'Impossible de créer la poubelle '|Impossible de créer la poubelle
+217|'Attention Dossier Système! Le détruire ?'|Attention Dossier Système! Le détruire ?
+218|'copie des fichiers'|copie des fichiers
+219|'copie des fichiers à partir /'|copie des fichiers à partir /
+220|' vers /'| vers /
+221|'Fichier destination '|Fichier destination 
+222|' existe'| existe
+225|' Déplacement impossible '| Déplacement impossible
+226|'Désolé, impossible de créer et de renommer un lien en même temps.'|Désolé, impossible de créer et de renommer un lien en même temps.
+227|'Désolé, création de lien impossible.'|Désolé, création de lien impossible.
+227|'Désolé, les liens ne peuvent pas avoir le même nom'|Désolé, les liens ne peuvent pas avoir le même nom
+228|' existe. Eviter ?'| existe. Eviter ?
+
+// TRACKER ADDONS DIALOG|
+229|'Pas d'add-ons pour le tracker'|Pas d'add-ons pour le tracker
+
+// FTP_Volet|
+233|'Déconnecter'|Déconnecter
+234|'Dossier'|Dossier
+235|'Ftp:Connecté'|Ftp:Connecté
+236|'erreur ftp'|erreur ftp
+237|'Editer les signets bookmark'|Editer les signets
+238|'Titre:'|Titre:
+239|'Hôte:'|Hôte:
+240|'Utilisateur:'|Utilisateur:
+241|'Mot de Passe:'|Mot de Passe:
+242|'Dossier:'|Dossier:
+243|"Signets ftp"|Signets ftp
+244|"Impossible de créer le dossier de configuration"|Impossible de créer le dossier de configuration
+245|"Impossible de créer le fichier de configuration"|Impossible de créer le fichier de configuration
+246|"Ftp:Connexion..."|Ftp:Connexion...
+247|"Ftp:Changement de dossier..."|Ftp:Changement de dossier...
+248|"ftp Volet pas prêt"|ftp Volet pas prêt
+249|"Relecture du dossier..."|Relecture du dossier...
+250|"Supprimer ce signet ?"|Supprimer ce signet ?
+251|"Relire le dossier"|Relire le dossier
+252|"Charger à partir de l'hôte"|Charger à partir de l'hôte 
+253|"Supprimer le(s) fichier(s) sur l'hôte"|Supprimer le(s) fichier(s) sur l'hôte
+254|"Impossible d'obtenir le nom du dossier courant"|Impossible d'obtenir le nom du dossier courant
+255|"Connexion impossible"|Connexion impossible
+
+// OPERROSTER|
+256|" de "| de 
+257|"Info"|Info
+262|"Copie"|Copie
+263|"fichier "|fichier 
+264|" existe"| existe
+265|"traitement en préparation"|preparing to process
+266|" PAUSE "| PAUSE 
+267|"total"|total
+268|"Opérations sur les fichiers"|Opérations sur les fichiers
+269|"Pause/Continuer"|Pause/Continuer
+270|"Réduire[Esc]"|Réduire[Esc]
+276|"operations en cours"|operations en cours
+
+271|Charger la palette|Charger la palette
+272|Sauver la palette|Sauver la palette
+273|'Nom du Fichier:'|Nom du Fichier:
