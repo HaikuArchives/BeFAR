@@ -180,7 +180,7 @@ BF_GUI_ViewEdit::MakeFocus(bool focused)
 void 
 BF_GUI_ViewEdit::DrawCursor(bool b_Show)
 {
-	printf("----start --------------------------------\n");
+	//printf("----start --------------------------------\n");
 	
 	if(!bAlwaysCursor && !IsFocus()) b_Show = false;
 	//
@@ -197,12 +197,12 @@ BF_GUI_ViewEdit::DrawCursor(bool b_Show)
 		BL_String s;						
 		while(TRUE){				
 			s = sValue;
-			printf("pre  RemoveUTF8 1\n");
+			//printf("pre  RemoveUTF8 1\n");
 			s.RemoveUTF8(iNavIndex,s.LengthUTF8()-iNavIndex);
-			printf("post RemoveUTF8 1 iNavIndex=%i LengthBytes=%i LengthChars=%i new LengthBytes=%i new LengthChars=%i \n",
-				iNavIndex,sValue.Length(),sValue.LengthUTF8(),s.Length(),s.LengthUTF8());
+			//printf("post RemoveUTF8 1 iNavIndex=%i LengthBytes=%i LengthChars=%i new LengthBytes=%i new LengthChars=%i \n",
+			//	iNavIndex,sValue.Length(),sValue.LengthUTF8(),s.Length(),s.LengthUTF8());
 			s.RemoveUTF8(0,iNavFirstChar);
-			printf("RemoveUTF8 2 iNavFirstChar=%i new length=%i\n",iNavFirstChar,s.Length());
+			//printf("RemoveUTF8 2 iNavFirstChar=%i new length=%i\n",iNavFirstChar,s.Length());
 			fWidth = poFont->oFont.StringWidth(s.String());	
 			if((fWidth+1)>=oRect.Width()){
 				iNavFirstChar++;				
@@ -236,7 +236,7 @@ BF_GUI_ViewEdit::DrawCursor(bool b_Show)
 		DrawString(s.String(),o1);
 		
 	}
-	printf("----end --------------------------------\n");
+	//printf("----end --------------------------------\n");
 }
 
 void					

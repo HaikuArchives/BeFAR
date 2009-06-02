@@ -126,7 +126,8 @@ BL_Collection::DeleteItem(void *pu_Item)
 		
 	switch(iItemsType){
 	case BL_COLLECTION_ITEMS_IS_STRING:{
-		BString* ps = (BString*)pu_Item;
+		BL_String* ps = (BL_String*)pu_Item;
+		printf("\t\tDeleteItem:BL_String:%s\n", ps->String());
 		ps->SetTo("");
 		DELETE(ps);
 		break;}
@@ -134,12 +135,12 @@ BL_Collection::DeleteItem(void *pu_Item)
 		BList* pl = (BList*)pu_Item;
 		DELETE(pl);
 		break;}	
-	case BL_COLLECTION_ITEMS_IS_BLOBJECT:
+	case BL_COLLECTION_ITEMS_IS_BLOBJECT:{
 		delete (BL_Object*)pu_Item;
-		break;		
-	case BL_COLLECTION_ITEMS_IS_VOID:
+		break;}
+	case BL_COLLECTION_ITEMS_IS_VOID:{
 		delete (void*)pu_Item;
-		break;		
+		break;}
 	};	
 }
 
@@ -213,8 +214,6 @@ BL_Collection::AddList(BL_Collection *pl_List)
 	
 	iItemsType = pl_List->iItemsType;
 	return BList::AddList(pl_List);
-		
-	
 }
 
 bool	
@@ -229,7 +228,21 @@ BL_Collection::AddItem(BString * ps_Item)
 {
 	ASSERT(BL_COLLECTION_ITEMS_IS_VOID==iItemsType
 		|| BL_COLLECTION_ITEMS_IS_STRING==iItemsType);
-		
+	BString* ps = (BString*)ps_Item;
+	printf("\t\tAddItem:BString:%s\n", ps->String());
+	
+	iItemsType = BL_COLLECTION_ITEMS_IS_STRING;
+	return BList::AddItem((void*)ps_Item);
+}
+
+bool
+BL_Collection::AddItem(BL_String * ps_Item)
+{
+	ASSERT(BL_COLLECTION_ITEMS_IS_VOID==iItemsType
+		|| BL_COLLECTION_ITEMS_IS_STRING==iItemsType);
+	BL_String* ps = (BL_String*)ps_Item;
+	printf("\t\tAddItem:BL_String:%s\n", ps->String());
+	
 	iItemsType = BL_COLLECTION_ITEMS_IS_STRING;
 	return BList::AddItem((void*)ps_Item);
 }
@@ -249,7 +262,7 @@ BL_Collection::AddItem(BL_Object * po_Item)
 {
 	ASSERT(BL_COLLECTION_ITEMS_IS_VOID==iItemsType
 		|| BL_COLLECTION_ITEMS_IS_BLOBJECT==iItemsType);		
-		
+
 	iItemsType = BL_COLLECTION_ITEMS_IS_BLOBJECT;
 	return BList::AddItem((void*)po_Item);
 }
@@ -415,6 +428,7 @@ BL_String::GetFromMessage(BMessage *po_Message,const char *pc_Name)
 int32		
 BL_String::LengthUTF8() const	
 {
+
 	int32 iLen=0;
 	for(int i=0;i<BString::Length();i++){
 		if(ByteAt(i)&128)	i++;
@@ -460,7 +474,7 @@ void
 BL_String::AppendUTF8(const char *source, int32 i_CharsCount)
 {
 	int32 iBytes=PCharCharsInBytes_UTF8(source,i_CharsCount);
-	printf("AppendUTF8(%i)  >  Append(%i)\n",i_CharsCount,iBytes,source);
+//	printf("AppendUTF8(%i)  >  Append(%i)\n",i_CharsCount,iBytes,source);
 	Append(source,iBytes);			
 }
 
@@ -468,7 +482,7 @@ const char*
 BL_String::StringUTF8(int32 i_FromChar)const
 {	
 	int32 iByte = PCharCharPosInBytes_UTF8(String(),i_FromChar);
-	printf("StringUTF8(%i)  >  String(%i)\n",i_FromChar,iByte);
+//	printf("StringUTF8(%i)  >  String(%i)\n",i_FromChar,iByte);
 	return String() + iByte;
 }	
 

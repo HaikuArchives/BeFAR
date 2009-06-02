@@ -56,6 +56,7 @@ virtual	 			~BL_Collection();
 		
 virtual	bool		AddItem(void *pu_Item);
 		bool		AddItem(BString * ps_Item);
+		bool		AddItem(BL_String * ps_Item);
 		bool		AddItem(BList * pl_Item);
 		bool		AddItem(BL_Object * po_Item);
 virtual bool		AddList(BList *pl_List);

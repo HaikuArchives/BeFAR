@@ -72,7 +72,7 @@ BF_GUI_KeysMenu_Item::Draw(BRect o_Rect)
 	SetHighColor(209,209,209);
 	SetLowColor(0,0,0);	
 	BPoint oPoint(oRect.left + (oRect.Width() - StringWidth(sNum.String()))/2,
-		oRect.bottom - 3);
+		oRect.bottom - 1);
 	DrawString(sNum.String(),oPoint);				
 	
 	/* draw text */
