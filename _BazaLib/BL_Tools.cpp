@@ -128,6 +128,7 @@ BL_Collection::DeleteItem(void *pu_Item)
 	case BL_COLLECTION_ITEMS_IS_STRING:{
 		BL_String* ps = (BL_String*)pu_Item;
 		printf("\t\tDeleteItem:BL_String:%s\n", ps->String());
+		printf("TATA:%s\n", ps->String());
 		ps->SetTo("");
 		DELETE(ps);
 		break;}

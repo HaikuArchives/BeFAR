@@ -286,7 +286,7 @@ BF_GUI_FilesPanel_Search::Run_OnBootVolume()
 	s="/boot";
 	// set volume //
 	{
-		s = oPath.GetVolume(true);
+		s = (const char*)oPath.GetVolume(true);
 		entry_ref uRef;
 		uRes = BF_Roster_LoadEntryRef(s.String(),uRef);
 		if(uRes!=B_OK){

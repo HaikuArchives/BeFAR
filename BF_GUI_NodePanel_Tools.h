@@ -12,4 +12,5 @@ private:
 		BMessage 				*poMessage;
 };
 
-#endif __BF_GUI_NODEPANEL_TOOLS_H__
+#endif //__BF_GUI_NODEPANEL_TOOLS_H__
+
