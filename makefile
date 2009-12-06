@@ -166,7 +166,9 @@ include $(BUILDHOME)/etc/makefile-engine
 
 DICTS=	BeFar_Dict_Eng.dict \
 		BeFar_Dict_French.dict \
-		BeFar_Dict_Russia.dict
+		BeFar_Dict_Russia.dict \
+		BeFar_Dict_Hun.dict \
+		BeFar_Dict_Spa.dict
 
 $(OBJ_DIR)/$(DICTS):
 	for i in $(DICTS); do \

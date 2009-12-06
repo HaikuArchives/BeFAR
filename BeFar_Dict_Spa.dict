@@ -3,10 +3,10 @@
 ///////////////////////////
 
 ////////   volume dialog |
-0||Selecionar volumen
+0||Seleccionar volumen
 
 //////// top menu|
-1||Izqierda
+1||Izquierda
 2||Común
 3||Derecha
 
@@ -16,7 +16,7 @@
 6||Comparar paneles
 7||Guardar configuración
 8||Recuperar configuración
-9||Estblecer configuracoón por defecto
+9||Estblecer configuración por defecto
 10||Guardar paleta
 11||Recuperar paleta
 42||Seleccionar idioma
@@ -47,7 +47,7 @@
 134||Copiar a
 135||Especial
 136||Mover a
-137||Question...?
+137||¿Cuestión...?
 187|Target file|Target file
 188|Script name|Script name
 189|En carpeta|En carpeta
@@ -75,12 +75,12 @@
 
 //////// vertical_menu for files panel |
 27||Búsqueda...
-28||Change case...
+28||Capitalización...
 29||Tracker Add-Ons
 30||Mostrar información
-31||Set opposite path to my
+31||Establecer ruta del panel opuesto
 32||Ir a...
-33||Refresh
+33||Refrescar
 34||Mostrar atributos...
 35||Make SH-link...
 
@@ -90,8 +90,8 @@
 37||Tipo
 38||Tamaño
 39||Fecha
-40| bytes en | bytes en 
-41| archivos | archivos 
+40| bytes en | bytes en
+41| archivos | archivos
 122||<dir>
 123||El Archivo no puide tener una cadena vacía como nombre
 124||Invertir selección
@@ -101,9 +101,9 @@
 128||Folder also
 129||Confuguración del panel
 130||Mostrar iconos
-131||Mostrar dates
-132||Mostrar sizes
-133||Mostrar types
+131||Mostrar fecha
+132||Mostrar tamaños
+133||Mostrar tipos
 180||Crear directorio
 138||Borrar ficheros?
 139||Lo siento, pero el panel está vacio
@@ -145,7 +145,7 @@
 71||Configuración principal
 72||Colores y fuentes
 73||Configuración de operaciones de archivo
-74||Configuración Debug 
+74||Configuración Debug
 
 83||Preguntar antes de Salir
 84||Vol.dialog: show home,desktop,boot
@@ -176,7 +176,7 @@
 
 // FILES PANEL|
 99||Loading
-100|' from '| from 
+100|' from '| from
 101||sorry, but path_history is empty
 103||MkLink
 105||To void
@@ -185,10 +185,10 @@
 112||I can`t make folder with empty name
 113||Are you crazy ? This volume is READ_ONLY !
 114||Error while MakeDir
-115||To lower
-116||To upper
-117||Capitalise
-118||Capitalise EW
+115||Minúsculas
+116||Mayúsculas
+117||Capitalizar
+118||Capitalizar EW
 119||Change file names
 120||Make links to
 185|I can`t run this file|I can`t run this file
@@ -202,11 +202,11 @@
 
 
 // SETUP|/
-181||can`t create file vars.settings,error : 
+181||can`t create file vars.settings,error :
 174||can`t make settings dir
-175||can`t create setting_file,error : 
-176||can`t load palete_file,error : 
-177||can`t create palete_file,error : 
+175||can`t create setting_file,error :
+176||can`t load palete_file,error :
+177||can`t create palete_file,error :
 
 // SETUP>COLORS|
 182||Panel : Back
@@ -249,32 +249,32 @@
 
 // INFO_PANEL|/
 198|File information|File information
-199|'Size: '|Size: 
-200|'Date: '|Date: 
-201|'Perms: '|Perms: 
-202|'MIME: '|MIME: 
-202|'Capacity: '|Capacity: 
-203|'Free bytes : '|Free bytes : 
-204|'Removeable '|Removeable 
+199|'Size: '|Size:
+200|'Date: '|Date:
+201|'Perms: '|Perms:
+202|'MIME: '|MIME:
+202|'Capacity: '|Capacity:
+203|'Free bytes : '|Free bytes :
+204|'Removeable '|Removeable
 205|'Read only'|Read only
 206|'Can`t load info'|Can`t load info
 
 // TASKS|
 207|'Are you crazy ? This volume is READ_ONLY !'|Are you crazy ? This volume is READ_ONLY !
-208|'Sorry, but I can`t give one name to many files '|Sorry, but I can`t give one name to many files 
+208|'Sorry, but I can`t give one name to many files '|Sorry, but I can`t give one name to many files
 209|'Are you crazy ? Name of dest.folder is wrong'|Are you crazy ? Name of dest.folder is wrong
 210|'Create it now!'|Create it now!
 211|'Dest.folder is not existing'|Dest.folder is not existing
 212|'Sorry,i can`t make folder!'|Sorry,i can`t make folder
 213|'Are you crazy ? Destination volume is READ_ONLY !'|Are you crazy ? Destination volume is READ_ONLY !
-214|'can`t make Trash_Dir '|can`t make Trash_Dir 
+214|'can`t make Trash_Dir '|can`t make Trash_Dir
 217|'This is a system folder. Do you really want to delete it ?'|This is a system folder. Do you really want to delete it ?
 218|'copying files'|copying files
 219|'copying files from /'|copying files from /
 220|' to /'| to /
-221|'Dest.file '|Dest.file 
+221|'Dest.file '|Dest.file
 222|' is existing'| is existing
-225|' Can`t move file '| Can`t move file 
+225|' Can`t move file '| Can`t move file
 226|'Sorry, but I can`t make links and rename them at one time.'|Sorry, but I can`t make links and rename them at one time.
 227|'Lo siento pero no puedo make links in folder'|Sorry, but I can`t make links in folder
 227|'Sorry, but I can`t make all links with one name'|Sorry, but I can`t make all links with one name
@@ -296,7 +296,7 @@
 242|'Directorio:'|Directorio:
 243|"Ftp bookmarks"|Ftp bookmarks
 244|"can`t make settings dir"|can`t make settings dir
-245|"can`t make setting_file "|can`t make setting_file 
+245|"can`t make setting_file "|can`t make setting_file
 246|"Ftp:Conectando..."|Ftp:Conectando...
 247|"Ftp:Dir cambiando..."|Ftp:Dir cambiando...
 248|"ftp_panel no listo"|ftp_panel no listo
@@ -309,13 +309,13 @@
 255|"No se pudo conectar"|No se pudo conectar
 
 // OPERROSTER|
-256|" de "| de 
+256|" de "| de
 257|"Info"|Info
 262|"Question sobre la copia"|Question sobre la copia
-263|"archivo "|archivo 
+263|"archivo "|archivo
 264|" existe"| existe
 265|"preparando para procesar"|preparando para procesar
-266|" EN PAUSA "| PAUSA 
+266|" EN PAUSA "| PAUSA
 267|"total"|total
 268|"Operaciones de arvhivo"|Operaciones de archivo
 269|"Pausa/Seguir"|Pausa/Seguir
