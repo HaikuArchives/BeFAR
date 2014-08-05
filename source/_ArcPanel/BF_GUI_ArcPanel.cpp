@@ -102,7 +102,7 @@ void BF_GUI_ArcPanel::Init(BL_String s_ArcFilename, BL_String s_InnerDir)
 	if(sArcFilename != s_ArcFilename) {
 		sArcFilename = s_ArcFilename;
 		BPath temp_path;
-		find_directory(B_COMMON_TEMP_DIRECTORY, &temp_path);
+		find_directory(B_SYSTEM_TEMP_DIRECTORY, &temp_path);
 		sTempFile = temp_path.Path();
 		BL_String str(sArcFilename);
 		str.Remove(0, str.FindLast('/'));
