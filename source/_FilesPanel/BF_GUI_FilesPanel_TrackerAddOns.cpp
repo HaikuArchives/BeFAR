@@ -8,7 +8,7 @@
 #include "BF_GUI_WinMain.h"
 
 #define ADDONS_FOLDER_SYS 	"/boot/home/config/add-ons/Tracker"
-#define ADDONS_FOLDER_HOME 	"/boot/beos/system/add-ons/Tracker"
+#define ADDONS_FOLDER_HOME 	"/boot/system/add-ons/Tracker"
 #define WIN_TITLE "Tracker Add-Ons"
 
 void

@@ -25,8 +25,8 @@ Version:	0.1C
 // Misc defines
 
 //#define TEMPORARY_FILE	"/boot/home/1111.txt"
-#define LIST_ZIP	"/boot/beos/bin/zipinfo -s %s >%s"
-#define LIST_TAR	"/boot/beos/bin/tar -t -v -f%s > %s"
+#define LIST_ZIP	"/bin/zipinfo -s %s >%s"
+#define LIST_TAR	"/bin/tar -t -v -f%s > %s"
 
 
 ///////////////////////////////////////

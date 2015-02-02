@@ -386,7 +386,7 @@ BF_GUI_ViewMain::MessageReceived(BMessage * po_Message)
 		poList->AddItem(new BF_GUI_ViewMenu_Item("cool!","ok"));
 		poList->AddItem(new BF_GUI_ViewMenu_Item("sweet!","ok"));
 		BF_Dialog_Alert_Sep("About box","BeFAR, developed by Baza & BeRussia Team",
-			poList,poWin->CurrentFocus(),"baza@benews.ru  ,  http://www.beos.ru/projects/befar");
+			poList,poWin->CurrentFocus(),"baza@benews.ru  ,  https://github.com/HaikuArchives/BeFAR");
 		break;}
 	case BF_MSG_MAINVIEW_EMPTY_TRASH:
 		Action_EmptyTrash();
