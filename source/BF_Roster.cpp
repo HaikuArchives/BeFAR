@@ -193,7 +193,7 @@ BF_Roster_LoadNodeList_Entry(
 			/* get small icon */
 			if(i_Style & BF_ROSTER_LOAD_SICON){
 				BNodeInfo oNodeInfo(&oFile);
-				if(!poBFNode->poSIcon) poBFNode->poSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+				if(!poBFNode->poSIcon) poBFNode->poSIcon = new BBitmap(BRect(0,0,15,15),B_RGBA32);
 				if(B_OK!=oNodeInfo.GetTrackerIcon(poBFNode->poSIcon,B_MINI_ICON)){
 					if(B_OK!=oNodeInfo.GetIcon(poBFNode->poSIcon,B_MINI_ICON)){
 						/* try to get  mime_icon */
@@ -218,7 +218,7 @@ BF_Roster_LoadNodeList_Entry(
 			BSymLink oLink(&oEntry);
 			if(oLink.InitCheck()==B_OK){
 				BNodeInfo oNodeInfo(&oFile);
-				if(!poBFNode->poSIcon) poBFNode->poSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+				if(!poBFNode->poSIcon) poBFNode->poSIcon = new BBitmap(BRect(0,0,15,15),B_RGBA32);
 				/* attempt to get icon from Link */
 				if(B_OK!=oNodeInfo.GetTrackerIcon(poBFNode->poSIcon,B_MINI_ICON)){
 				    /* error.....ok..attempt to get icon from Link.MimeType */

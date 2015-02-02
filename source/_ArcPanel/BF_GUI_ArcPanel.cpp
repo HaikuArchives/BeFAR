@@ -73,14 +73,14 @@ BF_GUI_ArcPanel::BF_GUI_ArcPanel(const BRect & o_Rect,bool b_WinPos_OnLeft)
 		poFolderSIcon = NULL;
 		BMimeType	oMimeType;
 		if(B_OK==oMimeType.SetTo("application/x-vnd.Be-directory")){
-			poFolderSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+			poFolderSIcon = new BBitmap(BRect(0,0,15,15),B_RGB32);
 			if(B_OK!=oMimeType.GetIcon(poFolderSIcon,B_MINI_ICON)){
 				DELETE(poFolderSIcon);
 			}
 		}
 		poDocSIcon	= NULL;
 		if(B_OK==oMimeType.SetTo("application/octet-stream")){
-			poDocSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+			poDocSIcon = new BBitmap(BRect(0,0,15,15),B_RGB32);
 			if(B_OK!=oMimeType.GetIcon(poDocSIcon,B_MINI_ICON)){
 				DELETE(poDocSIcon);
 			}
@@ -119,7 +119,7 @@ void BF_GUI_ArcPanel::Init(BL_String s_ArcFilename, BL_String s_InnerDir)
 	BBitmap *poPackageSIcon = NULL;
 	BMimeType	oMimeType;
 	if(B_OK==oMimeType.SetTo("application/zip")){ //  doesn't work. can't even imagine where do they get this icon.
-		poPackageSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+		poPackageSIcon = new BBitmap(BRect(0,0,15,15),B_RGB32);
 		if(B_OK!=oMimeType.GetIcon(poPackageSIcon,B_MINI_ICON)){
 			DELETE(poPackageSIcon);
 		}

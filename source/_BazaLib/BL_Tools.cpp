@@ -770,7 +770,7 @@ BL_Load_SIconFromMIME(const char *pc_MIME)
 	BBitmap* poSIcon = NULL ;
 	BMimeType	oMimeType;
 	if(B_OK==oMimeType.SetTo(pc_MIME)){
-		poSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+		poSIcon = new BBitmap(BRect(0,0,15,15),B_RGBA32);
 		if(B_OK!=oMimeType.GetIcon(poSIcon,B_MINI_ICON)){
 			DELETE(poSIcon);
 		}

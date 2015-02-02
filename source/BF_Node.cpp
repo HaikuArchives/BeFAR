@@ -44,13 +44,13 @@ BF_Node::BF_Node(const BF_Node &o_FromNode,bool b_SetIcon)
 void
 BF_Node::AllocLIcon()
 {
-	if(!poLIcon) poLIcon = new BBitmap(BRect(0,0,31,31),B_CMAP8);
+	if(!poLIcon) poLIcon = new BBitmap(BRect(0,0,31,31),B_RGB32);
 }
 
 void
 BF_Node::AllocSIcon()
 {
-	if(!poSIcon) poSIcon = new BBitmap(BRect(0,0,15,15),B_CMAP8);
+	if(!poSIcon) poSIcon = new BBitmap(BRect(0,0,15,15),B_RGB32);
 }
 
 void
