@@ -41,12 +41,16 @@ status_t BL_File::ReadString(BString *str)
 	if(!str)	return B_ERROR;
 	off_t 		pos = BFile::Position();
 	char 		buf[0x100];
-	size_t 		size = BFile::Read(buf, 0x100);
-	
+	ssize_t		size = BFile::Read(buf, 0x100);
+
+	if (!size)
+		size = B_ERROR;
+
+	if (size < 0)
+		return status_t(size);
+
 	BString bstr(buf);
 	int32 line_end = bstr.FindFirst('\n');
-	if(0 == size) // no data and hit the end of file
-		return B_ERROR;
 	if(line_end > size) { // there was data read, but the end of file reached
 		off_t size;
 		BFile::GetSize(&size);
