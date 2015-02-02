@@ -55,7 +55,7 @@ resource mini_icon array {
 	$"FFFFFFFFFFFFFFFFFFFF000000FFFFFF"
 };
 
-resource app_signature "application/x-vnd.BeRussia_Coders.BeFar";
+resource app_signature "application/x-vnd.Baza.BeFar";
 
 resource app_version {
 	major  = 0,
