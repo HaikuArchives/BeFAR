@@ -9,7 +9,8 @@
 #include "BF_GUI_FtpPanel.h"
 #include "BF_GUI_FtpPanel_Tasks.h"
 
-
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "FtpPanel"
 
 #define SETTINGS_FTP_DIR	(const char*)"/boot/home/config/settings/BeFAR/ftp"
 
@@ -112,23 +113,23 @@ BF_GUI_FtpPanel::PrepareKeysMenu()
 		switch(iVisMode){
 		case BF_FTPPANEL_VISMODE_BOOKMARKS:{
 			if(iState==BF_FTPPANEL_STATE_DEFAULT){
-				poSysKeysMenu->SetText(4,BF_DictAt(BF_DICT_EDIT));
+				poSysKeysMenu->SetText(4,B_TRANSLATE(BF_DICT_EDIT));
 				poSysKeysMenu->SetMessage(4,new BMessage(BF_FTP_MSG_EDIT_BOOKMARK),this);
-				poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_CREATE));
+				poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_CREATE));
 				poSysKeysMenu->SetMessage(7,new BMessage(BF_FTP_MSG_BOOKMARK_CREATE),this);			
-				poSysKeysMenu->SetText(8,BF_DictAt(BF_DICT_DELETE));
+				poSysKeysMenu->SetText(8,B_TRANSLATE(BF_DICT_DELETE));
 				poSysKeysMenu->SetMessage(8,new BMessage(BF_FTP_MSG_BOOKMARK_DELETE),this);
 			}
 			break;}
 		case BF_FTPPANEL_VISMODE_FTPLIST:{
 			if(iState==BF_FTPPANEL_STATE_CONNECTED){
-				poSysKeysMenu->SetText(3,BF_DictAt(BF_DICT_FTP_DISCONNECT));
+				poSysKeysMenu->SetText(3,B_TRANSLATE(BF_DICT_FTP_DISCONNECT));
 				poSysKeysMenu->SetMessage(3,new BMessage(BF_FTP_MSG_DISCONNECT),this);			
-				poSysKeysMenu->SetText(5,BF_DictAt(BF_DICT_COPY));
+				poSysKeysMenu->SetText(5,B_TRANSLATE(BF_DICT_COPY));
 				poSysKeysMenu->SetMessage(5,new BMessage(BF_MSG_NODEPANEL_COPY_START),this);			
-				poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_FTP_MAKEDIR));
+				poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_FTP_MAKEDIR));
 				poSysKeysMenu->SetMessage(7,new BMessage(BF_MSG_NODEPANEL_MAKEDIR_START),this);			
-				poSysKeysMenu->SetText(8,BF_DictAt(BF_DICT_DELETE));
+				poSysKeysMenu->SetText(8,B_TRANSLATE(BF_DICT_DELETE));
 				poSysKeysMenu->SetMessage(8,new BMessage(BF_MSG_NODEPANEL_DELETE_START),this);	
 			}
 			break;}
@@ -159,7 +160,7 @@ BF_GUI_FtpPanel::MessageReceived(BMessage* po_Message)
 		Act_ReloadDir_Start();
 		break;
 	case BF_FTP_MSG_DIR_CHANGED:{
-		SetHeader(BF_DictAt(BF_DICT_FTP_CONNECTED),poFolderSIcon);
+		SetHeader(B_TRANSLATE(BF_DICT_FTP_CONNECTED),poFolderSIcon);
 		uConnectThread = 0;
 		iState = BF_FTPPANEL_STATE_CONNECTED;
 		BL_String s;
@@ -168,7 +169,7 @@ BF_GUI_FtpPanel::MessageReceived(BMessage* po_Message)
 		//
 		break;}	
 	case BF_FTP_MSG_DIR_RELOAD:{
-		SetHeader(BF_DictAt(BF_DICT_FTP_CONNECTED),poFolderSIcon);
+		SetHeader(B_TRANSLATE(BF_DICT_FTP_CONNECTED),poFolderSIcon);
 		uConnectThread = 0;
 		iState = BF_FTPPANEL_STATE_CONNECTED;
 		BL_String s;
@@ -189,7 +190,7 @@ BF_GUI_FtpPanel::MessageReceived(BMessage* po_Message)
 	case BF_FTP_MSG_MESSAGE:{
 		char *pcMessage=NULL;
 		pcMessage = (char*)po_Message->FindString("message");
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_FTP_ERROR),pcMessage,NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_FTP_ERROR),pcMessage,NULL,this);
 		break;}
 	////////////////////////////////
 	case BF_FTP_MSG_BOOKMARK_CREATE:{
@@ -303,7 +304,7 @@ BF_GUI_FtpPanel::Bookmark_Edit()
 	BF_GUI_Func_PanelsEnable(false);
 	/* make dialog */	
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_FTP_EDITBKM),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
+		B_TRANSLATE(BF_DICT_FTP_EDITBKM),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
 	//poDialog->SetSizeBy( 300 , poSysSetup->oFontToolView.fHeight*7 + 5*6 );
 	//poDialog->MoveToCenter( poWinView );
 	BRect oRect;	
@@ -313,27 +314,27 @@ BF_GUI_FtpPanel::Bookmark_Edit()
 	BF_GUI_ViewCheck 	*poCheck;
 	/* insert title */		
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FTP_BKM_TITLE),poDialog,"title",poNode->poBookmark->sTitle.String(),
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FTP_BKM_TITLE),poDialog,"title",poNode->poBookmark->sTitle.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);	
 	/* insert host */		
 	oRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FTP_BKM_HOST),poDialog,"host",poNode->poBookmark->sHost.String(),
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FTP_BKM_HOST),poDialog,"host",poNode->poBookmark->sHost.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	///
 	oRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FTP_BKM_USERNAME),poDialog,"user_name",poNode->poBookmark->sUserName.String(),
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FTP_BKM_USERNAME),poDialog,"user_name",poNode->poBookmark->sUserName.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	///
 	oRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FTP_BKM_PWD),poDialog,"user_password",poNode->poBookmark->sUserPassword.String(),
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FTP_BKM_PWD),poDialog,"user_password",poNode->poBookmark->sUserPassword.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	// folder  //
 	oRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FTP_BKM_FOLDER),poDialog,"folder",poNode->poBookmark->sFolder.String(),
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FTP_BKM_FOLDER),poDialog,"folder",poNode->poBookmark->sFolder.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	// insert "passive"
 	oRect.top = oRect.bottom+5;
@@ -404,7 +405,7 @@ BF_GUI_FtpPanel::LoadBookmarks()
 		
 		loBukNode.AddItem(poNode);
 	}
-	SetHeader(BF_DictAt(BF_DICT_FTP_PANELTITLE),poFolderSIcon);
+	SetHeader(B_TRANSLATE(BF_DICT_FTP_PANELTITLE),poFolderSIcon);
 	loNode.DeleteItems();
 	Nodes_Add(NULL,&loBukNode);
 }
@@ -416,7 +417,7 @@ BF_GUI_FtpPanel::Bookmark_Save(const char *pc_OldTitle,BF_GUI_FtpPanel_NodeBookm
 	ASSERT(po_Node);
 	
 	if(B_OK!=BF_Roster_MakeDir(SETTINGS_FTP_DIR)){
-		Action_Alert(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_FTP_CANTMAKESETDIR));
+		Action_Alert(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_FTP_CANTMAKESETDIR));
 		return;
 	}	
 	BF_GUI_FtpPanel_Bookmark *poBookmark = po_Node->poBookmark;
@@ -435,10 +436,10 @@ BF_GUI_FtpPanel::Bookmark_Save(const char *pc_OldTitle,BF_GUI_FtpPanel_NodeBookm
 	
 	uErr = oDir.CreateFile(poBookmark->sTitle.String(),&oFile,false);	
 	if(uErr!=B_OK){
-		s = BF_DictAt(BF_DICT_FTP_CANTMAKESETFILE);
+		s = B_TRANSLATE(BF_DICT_FTP_CANTMAKESETFILE);
 		BL_System_TranslError(uErr,s1);
 		s<<s1;
-		Action_Alert(BF_DictAt(BF_DICT_ERROR),s1.String());
+		Action_Alert(B_TRANSLATE(BF_DICT_ERROR),s1.String());
 		return;
 	}
 	
@@ -461,7 +462,7 @@ BF_GUI_FtpPanel::Act_Connect()
 	if(!Nodes_Focus()) return;
 	
 	iState = BF_FTPPANEL_STATE_CONNECTING;
-	SetHeader(BF_DictAt(BF_DICT_FTP_CONNECTING),poFolderSIcon);
+	SetHeader(B_TRANSLATE(BF_DICT_FTP_CONNECTING),poFolderSIcon);
 	if(poSysKeysMenu) PrepareKeysMenu();
 	
 	uConnectThread = spawn_thread(BF_GUI_FtpPanel__Act_Connect_Thread, "ftp_connect", 
@@ -599,7 +600,7 @@ BF_GUI_FtpPanel::Act_ChangeDir_Start(BF_Node *po_Node)
 	ASSERT(po_Node);
 		
 	iState = BF_FTPPANEL_STATE_DIR_CHANGING;
-	SetHeader(BF_DictAt(BF_DICT_FTP_DIRCHANGING),poFolderSIcon);
+	SetHeader(B_TRANSLATE(BF_DICT_FTP_DIRCHANGING),poFolderSIcon);
 	if(poSysKeysMenu) PrepareKeysMenu();
 	
 	uConnectThread = spawn_thread(BF_GUI_FtpPanel__Act_ChangeDir_Thread, "ftp_change_dir",	B_NORMAL_PRIORITY, this);				
@@ -611,12 +612,12 @@ void
 BF_GUI_FtpPanel::Act_ReloadDir_Start()
 {
 	if(BF_FTPPANEL_STATE_CONNECTED!=iState){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_FTP_NOTREADY),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_FTP_NOTREADY),NULL,this);
 		return; 
 	}
 	
 	iState = BF_FTPPANEL_STATE_DIR_RELOAD;
-	SetHeader(BF_DictAt(BF_DICT_FTP_DIRRELOADING),poFolderSIcon);
+	SetHeader(B_TRANSLATE(BF_DICT_FTP_DIRRELOADING),poFolderSIcon);
 	if(poSysKeysMenu) PrepareKeysMenu();
 	
 	uConnectThread = spawn_thread(BF_GUI_FtpPanel__Act_ReloadDir_Thread, "ftp_reload_dir",B_NORMAL_PRIORITY,this);
@@ -627,7 +628,7 @@ void
 BF_GUI_FtpPanel::ActionMakeDir_Run(BL_String & s_Title)
 {
 	if(BF_FTPPANEL_STATE_CONNECTED!=iState){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_FTP_NOTREADY),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_FTP_NOTREADY),NULL,this);
 		return; 
 	}
 	
@@ -651,9 +652,9 @@ BF_GUI_FtpPanel::Bookmark_Delete()
 {
 	// make quit_dialog //		
 	BL_List *ploMenuItem = new BL_List();
-	ploMenuItem->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_YES),""));
-	ploMenuItem->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_NO),""));
-	BF_Dialog_Alert_Sep("",BF_DictAt(BF_DICT_FTP_BKM_ASKDEL),ploMenuItem,this,NULL,BF_FTP_MSG_BOOKMARK_DELETE_ANSWER);
+	ploMenuItem->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_YES),""));
+	ploMenuItem->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_NO),""));
+	BF_Dialog_Alert_Sep("",B_TRANSLATE(BF_DICT_FTP_BKM_ASKDEL),ploMenuItem,this,NULL,BF_FTP_MSG_BOOKMARK_DELETE_ANSWER);
 }
 
 void
@@ -715,7 +716,7 @@ BF_GUI_FtpPanel::PrepareTopMenuItem(BF_GUI_TopMenu_HItem *po_HItem)
 {
 	BF_GUI_NodePanel::PrepareTopMenuItem(po_HItem);
 	po_HItem->AddHItem("",NULL);
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_FTP_RELOADFOLDER),BF_FTP_MSG_DIR_RELOAD_START,this,"");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_FTP_RELOADFOLDER),BF_FTP_MSG_DIR_RELOAD_START,this,"");
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 void

@@ -7,6 +7,9 @@
 #include "BF_GUI_FilesPanel_Tasks.h"
 #include "BF_GUI_WinMain.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "TrackerAddOns"
+
 #define ADDONS_FOLDER_SYS 	"/boot/home/config/add-ons/Tracker"
 #define ADDONS_FOLDER_HOME 	"/boot/system/add-ons/Tracker"
 #define WIN_TITLE "Tracker Add-Ons"
@@ -46,7 +49,7 @@ BF_GUI_FilesPanel::Action_Tracker_Addons_Start()
 	Action_Tracker_Addons_Start_LoadAddOns(false,*ploMenu,bShowIcons);
 		
 	if(ploMenu->CountItems()==0){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_TRADDS_NONE),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_TRADDS_NONE),NULL,this);
 		return;
 	}
 	

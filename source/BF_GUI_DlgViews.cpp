@@ -8,6 +8,9 @@
 
 #include <Clipboard.h>
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "DlgViews"
+
 //////////////////////////////////////////////
 uint32
 BF_GUI_GetTextLength(BString & s_Text,float f_Width,BFont & o_Font)
@@ -265,8 +268,8 @@ BF_GUI_DlgPanel::AddOkCancelMenu(BRect & o_Rect,bool b_RectInited)
 	// prepare items for menu
 	BL_List *ploMenu = new BL_List();
 	ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
 	
 	AddMenu(o_Rect,ploMenu,b_RectInited);
 }
@@ -1055,7 +1058,7 @@ BF_Dialog_Alert(const char *pc_Title,const char *pc_Text,
 
 	if(!plo_MenuItem){
 		plo_MenuItem = new BL_List();		
-		plo_MenuItem->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
+		plo_MenuItem->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
 	}
 	
 	BRect oRect(poWin->Bounds());

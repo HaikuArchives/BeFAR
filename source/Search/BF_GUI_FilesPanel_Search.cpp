@@ -18,6 +18,9 @@ Modified:	20.11.99
 #include "BF_Roster.h"
 #include "BL_File.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Search"
+
 void
 BF_GUI_FilesPanel::Action_Search_0()
 {
@@ -30,7 +33,7 @@ BF_GUI_FilesPanel::Action_Search_0()
 	BF_GUI_Func_PanelsEnable(false);
 	/* make dialog */	
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_SEARCH),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+		B_TRANSLATE(BF_DICT_SEARCH),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 	/* resize dialog */	
 	BRect oRect;
 	poDialog->LocalBounds(oRect);	
@@ -38,18 +41,18 @@ BF_GUI_FilesPanel::Action_Search_0()
 	/* name */
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FILESEARCH_FILENAME),poDialog,"name","*",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FILESEARCH_FILENAME),poDialog,"name","*",
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);	
 	oRect.top = oRect.bottom + 5;					
 	/* text */	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_FILESEARCH_BYTEXT),poDialog,"text","",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_FILESEARCH_BYTEXT),poDialog,"text","",
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);					
 	oRect.top = oRect.bottom + 5;					
 	// check "from current folder" //
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
 	poDialog->AddChild(new BF_GUI_ViewCheck(oRect,"from_current_folder",
-		BF_DictAt(BF_DICT_FILESEARCH_FROMCURFOLDER),
+		B_TRANSLATE(BF_DICT_FILESEARCH_FROMCURFOLDER),
 		false,B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE));
 	oRect.top = oRect.bottom + 5;					
 	/* divider */						
@@ -58,7 +61,7 @@ BF_GUI_FilesPanel::Action_Search_0()
 	oRect.top = oRect.bottom + 5;
 	/* comment */	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	poDialog->AddChild(new BF_GUI_ViewText(oRect,"comment",BF_DictAt(BF_DICT_FILESEARCH_ONVOLUMES)
+	poDialog->AddChild(new BF_GUI_ViewText(oRect,"comment",B_TRANSLATE(BF_DICT_FILESEARCH_ONVOLUMES)
 			,B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_WILL_DRAW,false));
 	oRect.top = oRect.bottom+5;	
 	/* volumes */
@@ -151,7 +154,7 @@ BF_GUI_FilesPanel_SearchDialog::BF_GUI_FilesPanel_SearchDialog(
 	const char *pc_SearchName,
 	BF_GUI_FilesPanel *po_Panel,
 	BF_Path	 & o_Path)
-:BF_GUI_Dialog(o_Rect,BF_DictAt(BF_DICT_SEARCH),"search",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
+:BF_GUI_Dialog(o_Rect,B_TRANSLATE(BF_DICT_SEARCH),"search",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
 {
 	oMessage.what = BF_MSG_FILEPANEL_SEARCH_CLOSE;
 	oMessage.AddPointer("bf_focus",po_Panel);
@@ -168,20 +171,20 @@ BF_GUI_FilesPanel_SearchDialog::BF_GUI_FilesPanel_SearchDialog(
 	oRect.bottom-=poSysSetup->oFontToolView.fHeight*3+5;
 	BL_List *ploCol = new BL_List();
 	float fWidthSize = poSysSetup->oFontToolView.oFont.StringWidth("1234567890121")+10;
-	ploCol->AddItem(new BF_GUI_DlgView_VCMenu_Column(BF_DictAt(BF_DICT_NAME),oRect.Width()-fWidthSize));
-	ploCol->AddItem(new BF_GUI_DlgView_VCMenu_Column(BF_DictAt(BF_DICT_NAME),fWidthSize));
+	ploCol->AddItem(new BF_GUI_DlgView_VCMenu_Column(B_TRANSLATE(BF_DICT_NAME),oRect.Width()-fWidthSize));
+	ploCol->AddItem(new BF_GUI_DlgView_VCMenu_Column(B_TRANSLATE(BF_DICT_NAME),fWidthSize));
 	poList = new BF_GUI_DlgView_VCMenu(oRect,"results",B_FOLLOW_ALL,new BL_List(),BF_GUI_DLGVIEW_VMENU_SICON,
 		ploCol);
 	AddChild(poList);
 	/////
 	oRect.top = oRect.bottom + 5;
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	poComment = new BF_GUI_ViewText(oRect,"comment",BF_DictAt(BF_DICT_FILESEARCH_PROGRESS),B_FOLLOW_BOTTOM|B_FOLLOW_LEFT_RIGHT,0,false);
+	poComment = new BF_GUI_ViewText(oRect,"comment",B_TRANSLATE(BF_DICT_FILESEARCH_PROGRESS),B_FOLLOW_BOTTOM|B_FOLLOW_LEFT_RIGHT,0,false);
 	AddChild(poComment);
 	/////
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_GOTO),"go"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_GOTO),"go"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
 	AddMenu(oRect,ploMenu);	
 }
 
@@ -345,7 +348,7 @@ BF_GUI_FilesPanel_Search::Run_OnBootVolume()
 			if(poNode->iType!=BF_NODE_TYPE_FILE) continue;
 			// update info 
 			if(poDialogParent->poComment){
-				s2=BF_DictAt(BF_DICT_FILESEARCH_PROGRESS);
+				s2=B_TRANSLATE(BF_DICT_FILESEARCH_PROGRESS);
 				s2<<s1;
 				LOCK_WIN();
 				poDialogParent->poComment->sTitle = s2;
@@ -367,7 +370,7 @@ BF_GUI_FilesPanel_Search::Run_OnBootVolume()
 			// update info 
 			if(poDialogParent->poComment){
 				LOCK_WIN();
-				poDialogParent->poComment->sTitle = BF_DictAt(BF_DICT_FILESEARCH_PROGRESS);
+				poDialogParent->poComment->sTitle = B_TRANSLATE(BF_DICT_FILESEARCH_PROGRESS);
 				poDialogParent->poComment->Draw(poDialogParent->poComment->Bounds());
 			}
 		}
@@ -409,7 +412,7 @@ BF_GUI_FilesPanel_Search::Search_InFileCheck(BF_Node *po_Node,BL_String &s_FullP
 	// update info 
 	if(poDialogParent->poComment){
 
-		s=BF_DictAt(BF_DICT_FILESEARCH_PROGRESS);
+		s=B_TRANSLATE(BF_DICT_FILESEARCH_PROGRESS);
 		s<<po_Node->sName;
 		LOCK_WIN();
 		poDialogParent->poComment->sTitle = s;
@@ -432,7 +435,7 @@ BF_GUI_FilesPanel_Search::Search_InFileCheck(BF_Node *po_Node,BL_String &s_FullP
 	// update info 
 	if(poDialogParent->poComment){	
 		LOCK_WIN();
-		poDialogParent->poComment->sTitle = BF_DictAt(BF_DICT_FILESEARCH_PROGRESS);
+		poDialogParent->poComment->sTitle = B_TRANSLATE(BF_DICT_FILESEARCH_PROGRESS);
 		poDialogParent->poComment->Draw(poDialogParent->poComment->Bounds());
 	}
 	return  bFounded;
@@ -452,7 +455,7 @@ BF_GUI_FilesPanel_Search::Search_AddResult(BF_Node *po_Node,BL_String &s_FullPat
 		(po_Node && po_Node->poSIcon)?new BBitmap(po_Node->poSIcon):NULL);		
 	switch(po_Node->iType){
 	case BF_NODE_TYPE_DIR:
-		s_FullPath=BF_DictAt(BF_DICT_DIR);
+		s_FullPath=B_TRANSLATE(BF_DICT_DIR);
 		break;
 	default:			
 		s_FullPath = po_Node->iSize;
@@ -527,11 +530,11 @@ BF_GUI_FilesPanel_SearchDialog::MessageReceived(BMessage* po_Message)
 		poSearch = NULL;
 		
 		BL_String s;
-		s = BF_DictAt(BF_DICT_FILESEARCH_FOUNDED);
+		s = B_TRANSLATE(BF_DICT_FILESEARCH_FOUNDED);
 		s<<" ";
 		s<<poList->ploMenu->CountItems();
 		s<<" ";
-		s<<BF_DictAt(BF_DICT_FILESEARCH_FILES);
+		s<<B_TRANSLATE(BF_DICT_FILESEARCH_FILES);
 		poComment->sTitle = s;
 		poComment->Draw(poComment->Bounds());
 		break;}
@@ -550,11 +553,11 @@ BF_GUI_FilesPanel_SearchDialog::MessageReceived(BMessage* po_Message)
 		// update comment //
 		{
 			BL_String s;
-			s=BF_DictAt(BF_DICT_FILESEARCH_FOUNDED);
+			s=B_TRANSLATE(BF_DICT_FILESEARCH_FOUNDED);
 			s<<" ";
 			s<<poList->ploMenu->CountItems();
 			s<<" ";
-			s<<BF_DictAt(BF_DICT_FILESEARCH_FILES);
+			s<<B_TRANSLATE(BF_DICT_FILESEARCH_FILES);
 			poComment->sTitle = s;
 			poComment->Draw(poComment->Bounds());
 		}

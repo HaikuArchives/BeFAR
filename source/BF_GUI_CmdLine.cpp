@@ -5,6 +5,9 @@
 #include "BF_GUI_Func.h"
 #include "BF_GUI_WinMain.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CmdLine"
+
 BF_GUI_CmdLine *poCmdLine = NULL;
 
 BF_GUI_CmdLine::BF_GUI_CmdLine(const BRect & o_Rect)
@@ -115,7 +118,7 @@ void
 BF_GUI_CmdLine::ShowHistory()
 {
 	if(lsCommand.CountItems()==0){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_WARNING),BF_DictAt(BF_DICT_PATH_EMPTY),NULL,poWin->CurrentFocus());
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_WARNING),B_TRANSLATE(BF_DICT_PATH_EMPTY),NULL,poWin->CurrentFocus());
 		return;
 	}
 	
@@ -243,7 +246,7 @@ BF_GUI_CmdLine::Action_Enter()
 	if(B_OK==BF_Roster_RunEntry(BEntry(sCommand.String()))){
 	}else
 	{
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_PATH_CANNOTRUN),NULL,poWin->CurrentFocus());
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_PATH_CANNOTRUN),NULL,poWin->CurrentFocus());
 		SetValues(NULL,"");
 	}
 	//

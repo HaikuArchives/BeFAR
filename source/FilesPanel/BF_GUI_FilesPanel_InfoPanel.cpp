@@ -10,7 +10,8 @@
 
 #include "BF_Roster.h"
 
-
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "InfoPanel"
 
   
 BF_GUI_FilesPanel_InfoPanel::BF_GUI_FilesPanel_InfoPanel(
@@ -19,7 +20,7 @@ BF_GUI_FilesPanel_InfoPanel::BF_GUI_FilesPanel_InfoPanel(
 ):BF_GUI_Panel(o_Rect,"info",b_WinPos_OnLeft) 
 {
 	bNodeReady = false;
-	SetHeader(BF_DictAt(BF_DICT_INFOPANEL_TITLE));
+	SetHeader(B_TRANSLATE(BF_DICT_INFOPANEL_TITLE));
 }
 
 
@@ -65,7 +66,7 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 	fy += fHeight+5;	
 	/* draw size */
 	o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-	s=BF_DictAt(BF_DICT_INFOPANEL_SIZE);
+	s=B_TRANSLATE(BF_DICT_INFOPANEL_SIZE);
 	s1=oNode.iSize;
 	s1.SetDigits();
 	s<<s1;
@@ -73,7 +74,7 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 	fy += fHeight+5;	
 	/* draw date */
 	o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-	s=BF_DictAt(BF_DICT_INFOPANEL_DATE);
+	s=B_TRANSLATE(BF_DICT_INFOPANEL_DATE);
 	char pcBuffer[200]="";
 	{
 		tm* puTime = localtime(&oNode.uCreateTime);; 
@@ -88,14 +89,14 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 	poRender->DrawString(s.String(),o);
 	fy += fHeight+5;		
 	/* draw perms */
-	s=BF_DictAt(BF_DICT_INFOPANEL_PERMS);
+	s=B_TRANSLATE(BF_DICT_INFOPANEL_PERMS);
 	oNode.PermsTo(s1);
 	s<<s1;
 	o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
 	poRender->DrawString(s.String(),o);
 	fy += fHeight+5;
 	/* draw mime_type */
-	s=BF_DictAt(BF_DICT_INFOPANEL_MIME);
+	s=B_TRANSLATE(BF_DICT_INFOPANEL_MIME);
 	s<<oNode.sType;
 	o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
 	poRender->DrawString(s.String(),o);
@@ -129,7 +130,7 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 	if(oVol.bLoadedOk)
 	{		
 		o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-		s=BF_DictAt(BF_DICT_INFOPANEL_CAPACITY);
+		s=B_TRANSLATE(BF_DICT_INFOPANEL_CAPACITY);
 		s1=oVol.iCapacity;
 		s1.SetDigits();
 		s<<s1;
@@ -137,7 +138,7 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 		fy += fHeight+5;		
 		//
 		o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-		s=BF_DictAt(BF_DICT_INFOPANEL_FREEBYTES);
+		s=B_TRANSLATE(BF_DICT_INFOPANEL_FREEBYTES);
 		s1=oVol.iFree;
 		s1.SetDigits();
 		s<<s1;
@@ -146,20 +147,20 @@ BF_GUI_FilesPanel_InfoPanel::DrawPanel(BRect &o_Rect)
 		// removable
 		if(oVol.bRemovable){
 			o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-			s=BF_DictAt(BF_DICT_INFOPANEL_REMOVEABLE);
+			s=B_TRANSLATE(BF_DICT_INFOPANEL_REMOVEABLE);
 			poRender->DrawString(s.String(),o);
 			fy += fHeight+5;		
 		}
 		// readonly
 		if(oVol.bRemovable){
 			o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-			s=BF_DictAt(BF_DICT_READONLY);
+			s=B_TRANSLATE(BF_DICT_READONLY);
 			poRender->DrawString(s.String(),o);
 			fy += fHeight+5;			
 		}
 	}else{
 		o.Set(10,fy+poSysSetup->oFontToolView.fAscent);
-		s=BF_DictAt(BF_DICT_CANTLOADINFO);
+		s=B_TRANSLATE(BF_DICT_CANTLOADINFO);
 		poRender->DrawString(s.String(),o);
 		fy += fHeight+5;			
 	}

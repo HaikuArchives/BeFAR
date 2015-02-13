@@ -16,6 +16,9 @@ Modified:	20.11.99
 #include "BF_GUI_Func.h"
 #include "BF_GUI_WinMain.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "SetupDialog"
+
 ///////////////////////////////////////////////////////////////////  
 BF_GUI_FontView::BF_GUI_FontView(
 	BRect &o_Rect,
@@ -222,7 +225,7 @@ BF_GUI_SetupDialog_FontItem::Invoke(BF_GUI_DlgView_Menu *po_Parent)
 		oRect.top += 310;
 		oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight*2;
 		oRect.right = oRect.left + 140;
-		BF_GUI_ViewCheck *poCheck = new BF_GUI_ViewCheck(oRect,"anti_aliasing",BF_DictAt(BF_DICT_FONTSETUP_ANTI)
+		BF_GUI_ViewCheck *poCheck = new BF_GUI_ViewCheck(oRect,"anti_aliasing",B_TRANSLATE(BF_DICT_FONTSETUP_ANTI)
 			,poFont->iFlags & B_FORCE_ANTIALIASING
 			,B_FOLLOW_LEFT|B_FOLLOW_TOP,B_WILL_DRAW|B_NAVIGABLE);
 		poDialog->AddChild(poCheck);
@@ -243,7 +246,7 @@ BF_GUI_SetupDialog_FontItem::Invoke(BF_GUI_DlgView_Menu *po_Parent)
 	oRect.right = oRect.left + 150;
 	BL_String s;
 	s<<poFont->fSize;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_SIZE),poDialog,"size",s.String()
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_SIZE),poDialog,"size",s.String()
 		,B_FOLLOW_LEFT|B_FOLLOW_BOTTOM,B_NAVIGABLE);
 							
 	///////////////////////////////		
@@ -255,7 +258,7 @@ BF_GUI_SetupDialog_FontItem::Invoke(BF_GUI_DlgView_Menu *po_Parent)
 	oRect.top = oRect.bottom+10;
 	oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
 	poDialog->AddMenu(oRect,ploMenu,true);		
 	
 	/* finish */
@@ -481,7 +484,7 @@ BF_GUI_SetupDialog_ColorItem::Draw(BF_GUI_DlgView_Menu *po_Parent,BView *po_Rend
 ///////////////////////////////////////////////////////////////////
   
 BF_GUI_SetupDialog::BF_GUI_SetupDialog(BRect & o_Rect,BView *po_View)
-:BF_GUI_Dialog(o_Rect,BF_DictAt(BF_DICT_MAINSETUP),"",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
+:BF_GUI_Dialog(o_Rect,B_TRANSLATE(BF_DICT_MAINSETUP),"",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
 {
 	poSysSetup->CopyTo(oSetup);
 	//
@@ -489,10 +492,10 @@ BF_GUI_SetupDialog::BF_GUI_SetupDialog(BRect & o_Rect,BView *po_View)
 	oMessage.AddPointer("bf_focus",po_View);		
 	/* make left menu*/		
 	BL_List *ploLeftList = new BL_List();
-	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_MAINSETUP_COLSFONTS),"colors_fonts"));
-	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_MAINSETUP),"flags_main"));
-	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_MAINSETUP_FILES),"filetasks_copy"));
-	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_MAINSETUP_DEBUG),"flags_debug"));
+	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_MAINSETUP_COLSFONTS),"colors_fonts"));
+	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_MAINSETUP),"flags_main"));
+	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_MAINSETUP_FILES),"filetasks_copy"));
+	ploLeftList->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_MAINSETUP_DEBUG),"flags_debug"));
 
 	BRect oRect;	
 	LocalBounds(oRect);	
@@ -505,7 +508,7 @@ BF_GUI_SetupDialog::BF_GUI_SetupDialog(BRect & o_Rect,BView *po_View)
 	LocalBounds(oRect);
 	oRect.top = oRect.bottom - oSetup.oFontToolView.fHeight;
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
 	AddMenu(oRect,ploMenu,true);		
 
 	// load icons //	
@@ -613,22 +616,22 @@ BF_GUI_SetupDialog::Invoke_ColorsSetup()
 	oRect.top+=70;
 	oRect.bottom-=70;
 	/* make dialog */	
-	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(oRect,BF_DictAt(BF_DICT_MAINSETUP_COLSFONTS),"colors_dialog"
+	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(oRect,B_TRANSLATE(BF_DICT_MAINSETUP_COLSFONTS),"colors_dialog"
 		,oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 
 	/* insert colors */		
 	BL_List *ploItem = new BL_List();	
 	for(int iColor=0;iColor<BF_COLOR_END;iColor++){
 		ploItem->AddItem(new BF_GUI_SetupDialog_ColorItem(
-			BF_DictAt(poSysSetup->aoColor[iColor].iDictCode),"",&oSetup.aoColor[iColor].rgb));
+			B_TRANSLATE(poSysSetup->aoColor[iColor].iDictCode),"",&oSetup.aoColor[iColor].rgb));
 	}
 	
 	ploItem->AddItem(new BF_GUI_ViewMenu_Item("",""));
 	/* insert fonts */		
-	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(BF_DictAt(BF_DICT_FONTSETUP_FONTPANEL),"back",&oSetup.oFontNode,poFontSIcon?new BBitmap(poFontSIcon):NULL));
-	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(BF_DictAt(BF_DICT_FONTSETUP_FONTDIALOG),"frame",&oSetup.oFontToolView,poFontSIcon?new BBitmap(poFontSIcon):NULL));
-	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(BF_DictAt(BF_DICT_FONTSETUP_FONTMONO),"dir",&oSetup.oFontMono,poFontSIcon?new BBitmap(poFontSIcon):NULL));
-	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(BF_DictAt(BF_DICT_FONTSETUP_FONTCOMMAND),"dir",&oSetup.oFontCMDLine,poFontSIcon?new BBitmap(poFontSIcon):NULL));
+	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(B_TRANSLATE(BF_DICT_FONTSETUP_FONTPANEL),"back",&oSetup.oFontNode,poFontSIcon?new BBitmap(poFontSIcon):NULL));
+	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(B_TRANSLATE(BF_DICT_FONTSETUP_FONTDIALOG),"frame",&oSetup.oFontToolView,poFontSIcon?new BBitmap(poFontSIcon):NULL));
+	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(B_TRANSLATE(BF_DICT_FONTSETUP_FONTMONO),"dir",&oSetup.oFontMono,poFontSIcon?new BBitmap(poFontSIcon):NULL));
+	ploItem->AddItem(new BF_GUI_SetupDialog_FontItem(B_TRANSLATE(BF_DICT_FONTSETUP_FONTCOMMAND),"dir",&oSetup.oFontCMDLine,poFontSIcon?new BBitmap(poFontSIcon):NULL));
 	/*-------*/
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom -= +oSetup.oFontToolView.fHeight*2;
@@ -640,7 +643,7 @@ BF_GUI_SetupDialog::Invoke_ColorsSetup()
 	
 	/* menu ok */	
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
 	poDialog->AddMenu(oRect,ploMenu);		
 	
 	/*
@@ -673,7 +676,7 @@ BF_GUI_SetupDialog::Invoke_FlagsSetup(int i_Type)
 	oRect.top+=30;
 	oRect.bottom-=30;
 	/* make dialog */	
-	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(oRect,BF_DictAt(BF_DICT_FONTSETUP_FLAGS),"flags_dialog",
+	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(oRect,B_TRANSLATE(BF_DICT_FONTSETUP_FLAGS),"flags_dialog",
 		oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 			
 	/* flags */
@@ -682,24 +685,24 @@ BF_GUI_SetupDialog::Invoke_FlagsSetup(int i_Type)
 	////
 	switch(i_Type){
 	case BF_GUI_SETUPDIALOG_FLAGS_MAIN:{			
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_ASKEXIT),BF_SETUP_MAIN_ASK_EXIT,oRect,poDialog,true);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_VOLSHOWHOME),BF_SETUP_MAIN_SELECTVOL_SHOWSPEC,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_VOLSTACK),BF_SETUP_MAIN_SELECTVOL_SHOWSTACK,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_VOLICONS),BF_SETUP_MAIN_SELECTVOL_SHOWSICON,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_PATHICON),BF_SETUP_MAIN_FP_HEADERICON,oRect,poDialog,false);	
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_PANBACK),BF_SETUP_NODEPANEL_USE_BACKSPACE,oRect,poDialog,false);	
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_PANRET),BF_SETUP_MAIN_RETURN_REMEMBER,oRect,poDialog,false);		 		
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_CMDPATH),BF_SETUP_CMDLINE_SHOWPATH,oRect,poDialog,false);	
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_TRACKADDICONS),BF_SETUP_FILESPANEL_TRACKERADDONS_SHOWICONS,oRect,poDialog,false);		
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_SEARCHVOLICONS),BF_SETUP_SEARCH_SETUP_VOLICONS,oRect,poDialog,false);		
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_MAINSETUP_AUTOSAVE),BF_SETUP_AUTOSAVE,oRect,poDialog,false);			
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_ASKEXIT),BF_SETUP_MAIN_ASK_EXIT,oRect,poDialog,true);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_VOLSHOWHOME),BF_SETUP_MAIN_SELECTVOL_SHOWSPEC,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_VOLSTACK),BF_SETUP_MAIN_SELECTVOL_SHOWSTACK,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_VOLICONS),BF_SETUP_MAIN_SELECTVOL_SHOWSICON,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_PATHICON),BF_SETUP_MAIN_FP_HEADERICON,oRect,poDialog,false);	
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_PANBACK),BF_SETUP_NODEPANEL_USE_BACKSPACE,oRect,poDialog,false);	
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_PANRET),BF_SETUP_MAIN_RETURN_REMEMBER,oRect,poDialog,false);		 		
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_CMDPATH),BF_SETUP_CMDLINE_SHOWPATH,oRect,poDialog,false);	
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_TRACKADDICONS),BF_SETUP_FILESPANEL_TRACKERADDONS_SHOWICONS,oRect,poDialog,false);		
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_SEARCHVOLICONS),BF_SETUP_SEARCH_SETUP_VOLICONS,oRect,poDialog,false);		
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_MAINSETUP_AUTOSAVE),BF_SETUP_AUTOSAVE,oRect,poDialog,false);			
 		break;}
 	case BF_GUI_SETUPDIALOG_FLAGS_FILETASKS:{
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_SETUPFILES_SHOWDLG),BF_SETUP_OPERROSTER_DEFDIALOG,oRect,poDialog,true);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_SETUPFILES_COPYDES),BF_SETUP_NODEPANEL_DESELECT_AFTER_COPY,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_SETUPFILES_MOVEDES),BF_SETUP_NODEPANEL_DESELECT_AFTER_MOVE,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_SETUPFILES_ASKDEL),BF_SETUP_MAIN_ASK_DELETE,oRect,poDialog,false);
-		Insert_MainStyle_Check(BF_DictAt(BF_DICT_SETUPFILES_ASKCOPY),BF_SETUP_MAIN_ASK_COPY,oRect,poDialog,false);	
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_SETUPFILES_SHOWDLG),BF_SETUP_OPERROSTER_DEFDIALOG,oRect,poDialog,true);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_SETUPFILES_COPYDES),BF_SETUP_NODEPANEL_DESELECT_AFTER_COPY,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_SETUPFILES_MOVEDES),BF_SETUP_NODEPANEL_DESELECT_AFTER_MOVE,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_SETUPFILES_ASKDEL),BF_SETUP_MAIN_ASK_DELETE,oRect,poDialog,false);
+		Insert_MainStyle_Check(B_TRANSLATE(BF_DICT_SETUPFILES_ASKCOPY),BF_SETUP_MAIN_ASK_COPY,oRect,poDialog,false);	
 		break;}		
 	case BF_GUI_SETUPDIALOG_FLAGS_DEBUG:{
 		Insert_MainStyle_Check("Debug : disable node_monitoring",BF_SETUP_DEB_NOMONITORING,oRect,poDialog,true);
@@ -708,7 +711,7 @@ BF_GUI_SetupDialog::Invoke_FlagsSetup(int i_Type)
 	}
 	/* menu ok */	
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
 	poDialog->AddMenu(oRect,ploMenu);		
 	
 	/* finish */

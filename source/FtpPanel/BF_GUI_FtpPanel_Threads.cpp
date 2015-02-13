@@ -8,6 +8,9 @@
 #include "BF_GUI_FtpPanel.h"
 #include "BF_GUI_FtpPanel_Tasks.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "FtpPanel_Threads"
+
 int32 
 BF_GUI_FtpPanel__Act_Connect_Thread(void *data)
 {	
@@ -37,7 +40,7 @@ BF_GUI_FtpPanel__Act_Connect_Thread(void *data)
 		string sPath;
 		if(!poClient->pwd(sPath)){
 			BMessage userPassMessage(BF_FTP_MSG_MESSAGE);
-			userPassMessage.AddString("message",BF_DictAt(BF_DICT_FTP_ERRGETNAME));
+			userPassMessage.AddString("message",B_TRANSLATE(BF_DICT_FTP_ERRGETNAME));
 			poWin->PostMessage(&userPassMessage,poPanel);
 			return -4;		
 		}		
@@ -52,7 +55,7 @@ BF_GUI_FtpPanel__Act_Connect_Thread(void *data)
 		poWin->PostMessage(&userPassMessage,poPanel);
 	}else{
 		BMessage userPassMessage(BF_FTP_MSG_MESSAGE);
-		userPassMessage.AddString("message", BF_DictAt(BF_DICT_FTP_ERRCONNECT));		
+		userPassMessage.AddString("message", B_TRANSLATE(BF_DICT_FTP_ERRCONNECT));		
 		poWin->PostMessage(&userPassMessage,poPanel);
 		return -4;	
 	}
@@ -79,7 +82,7 @@ BF_GUI_FtpPanel__Act_ChangeDir_Thread(void *data)
 		string sPath;
 		if(!poClient->pwd(sPath)){
 			BMessage userPassMessage(BF_FTP_MSG_MESSAGE);
-			userPassMessage.AddString("message", BF_DictAt(BF_DICT_FTP_ERRGETNAME));
+			userPassMessage.AddString("message", B_TRANSLATE(BF_DICT_FTP_ERRGETNAME));
 			poWin->PostMessage(&userPassMessage,poPanel);
 			return -4;		
 		}		

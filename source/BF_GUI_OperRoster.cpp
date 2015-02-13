@@ -7,6 +7,8 @@
 #include "BF_GUI_OperRoster.h"  
 #include "BF_GUI_CmdLine.h"  
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "OperRoster"
 
 BF_GUI_OperRoster *poOperRoster = NULL;
 
@@ -35,7 +37,7 @@ BF_GUI_OperRoster_Draw_Progress(BView *po_Render,const BRect & o_Rect,uint64 i_I
 	s1=i_Index;
 	s1.SetDigits();
 	s<<s1;
-	s<<BF_DictAt(BF_DICT_ROSTER_OFF);
+	s<<B_TRANSLATE(BF_DICT_ROSTER_OFF);
 	//
 	s1=i_Count;
 	s1.SetDigits();
@@ -99,7 +101,7 @@ BF_GUI_OperTask::Ask_Message(const char *pc_Message,BL_List *plo_MenuItem,const 
 		//bWaitingScreen = false;
 	}
 		
-	int32 iResult = BF_Dialog_Alert(BF_DictAt(BF_DICT_ROSTER_INFO),pc_Message,plo_MenuItem,pc_ExtMessage);
+	int32 iResult = BF_Dialog_Alert(B_TRANSLATE(BF_DICT_ROSTER_INFO),pc_Message,plo_MenuItem,pc_ExtMessage);
 	
 	// free screen
 	{
@@ -119,9 +121,9 @@ BF_GUI_OperTask::Ask_Error(const char *pc_Message,bool b_AskAdditional, const ch
 	ASSERT(pc_Message);
 	
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),""));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),""));
 	if(b_AskAdditional){
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCELALL),""));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCELALL),""));
 	}
 	
 	int32 iResult = Ask_Message(pc_Message,ploMenu,pc_ExtMessage);
@@ -156,19 +158,19 @@ BF_GUI_OperTask::Ask_Copy_FileExist(const char *pc_NodeName,bool b_AskAboutAppen
 		//bWaitingScreen = false;
 	}
 	
-	BL_String s(BF_DictAt(BF_DICT_ROSTER_FILE));
+	BL_String s(B_TRANSLATE(BF_DICT_ROSTER_FILE));
 	s<<pc_NodeName;
-	s<<BF_DictAt(BF_DICT_ROSTER_EXISTS);
+	s<<B_TRANSLATE(BF_DICT_ROSTER_EXISTS);
 	
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OWERWRITE),"overwrite"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_SKIP),"skip"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OWERWRITEALL),"overwrite_all"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_SKIPALLERRORS),"skip_all"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
-	if(b_AskAboutAppend) ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_APPEND),"appens"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OWERWRITE),"overwrite"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_SKIP),"skip"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OWERWRITEALL),"overwrite_all"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_SKIPALLERRORS),"skip_all"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
+	if(b_AskAboutAppend) ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_APPEND),"appens"));
 	
-	int32 iResult = BF_Dialog_Alert(BF_DictAt(BF_DICT_ROSTER_COPYASK),s.String(),ploMenu);
+	int32 iResult = BF_Dialog_Alert(B_TRANSLATE(BF_DICT_ROSTER_COPYASK),s.String(),ploMenu);
 	
 	// free screen
 	{
@@ -391,7 +393,7 @@ BF_GUI_OperRoster_Lenta::Draw(BRect o_Rect)
 	oRect.right--;
 	oRect.top++;
 	oRect.bottom--;		
-	BF_GUI_OperRoster_Draw_Progress(this,oRect,iProgIndex,iProgCount,BF_DictAt(BF_DICT_ROSTER_OPERPROGRESS));
+	BF_GUI_OperRoster_Draw_Progress(this,oRect,iProgIndex,iProgCount,B_TRANSLATE(BF_DICT_ROSTER_OPERPROGRESS));
 		
 	/*
 	SetHighColor(SYS_COLOR(BF_COLOR_NODE));
@@ -437,22 +439,22 @@ BF_GUI_OperRoster_Dialog_Item::Draw(BF_GUI_DlgView_Menu *po_Parent,BView *po_Ren
 	switch(iTaskState){
 	case BF_GUI_OPERTASK_STATE_PRESTART:		
 		oPoint.y += poSysSetup->oFontToolView.fHeight+1;
-		po_Render->DrawString(BF_DictAt(BF_DICT_ROSTER_PREPARING),oPoint);
+		po_Render->DrawString(B_TRANSLATE(BF_DICT_ROSTER_PREPARING),oPoint);
 		break;
 	case BF_GUI_OPERTASK_STATE_PAUSE:		
-		BF_GUI_OperRoster_Draw_Progress(po_Render,oRect,iProgIndex,iProgCount,BF_DictAt(BF_DICT_ROSTER_PAUSED));
+		BF_GUI_OperRoster_Draw_Progress(po_Render,oRect,iProgIndex,iProgCount,B_TRANSLATE(BF_DICT_ROSTER_PAUSED));
 		/*oPoint.y += poSysSetup->oFontToolView.fHeight+1;
 		po_Render->DrawString(" paused ",oPoint);	*/
 		break;
 	case BF_GUI_OPERTASK_STATE_RUN:
-		BF_GUI_OperRoster_Draw_Progress(po_Render,oRect,iProgIndex,iProgCount,BF_DictAt(BF_DICT_ROSTER_TOTAL));
+		BF_GUI_OperRoster_Draw_Progress(po_Render,oRect,iProgIndex,iProgCount,B_TRANSLATE(BF_DICT_ROSTER_TOTAL));
 		break;
 	};
 }
 ///////////////////////////////////////////////////////////////////////////
 
 BF_GUI_OperRoster_Dialog::BF_GUI_OperRoster_Dialog(const BRect & o_Rect)
- :BF_GUI_Dialog(o_Rect,BF_DictAt(BF_DICT_ROSTER_TITLE),"operroster_dialog",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
+ :BF_GUI_Dialog(o_Rect,B_TRANSLATE(BF_DICT_ROSTER_TITLE),"operroster_dialog",BMessage(),BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL)
 {
 }
 
@@ -884,9 +886,9 @@ BF_GUI_OperRoster::SetViewMode(int32 i_NewViewMode)
 		oRect.top = oRect.bottom+10;
 		oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 		BL_List *ploMenu = new BL_List();
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_ROSTER_PAUSERUN),"pause"));
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_ROSTER_MINIMISE),"minimase"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_ROSTER_PAUSERUN),"pause"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_ROSTER_MINIMISE),"minimase"));
 		poDialog->AddMenu(oRect,ploMenu,true);		
 		
 		// finish 		

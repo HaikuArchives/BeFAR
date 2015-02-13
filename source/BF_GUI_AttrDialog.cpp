@@ -24,6 +24,8 @@ Changes:
 #include "BF_GUI_AttrDialog.h"
 #include "BF_GUI_WinMain.h"  // global window pointer
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "AttrDialog"
 
 ////////////////////////////////////////
 //	Inner class definition
@@ -54,9 +56,9 @@ BF_GUI_AttrDialog_Menu::BF_GUI_AttrDialog_Menu(BRect & o_Rect,BF_Path & o_Path,B
 	{
 		delete ploCol;
 		ploCol = new BL_List();
-		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(BF_DictAt(BF_DICT_NAME),0) );
-		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(BF_DictAt(BF_DICT_TYPE),0) );
-		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(BF_DictAt(BF_DICT_VALUE),0) );
+		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(B_TRANSLATE(BF_DICT_NAME),0) );
+		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(B_TRANSLATE(BF_DICT_TYPE),0) );
+		ploCol->AddItem( new BF_GUI_DlgView_VCMenu_Column(B_TRANSLATE(BF_DICT_VALUE),0) );
 		CalcWidths(o_Rect);
 	}		
 	Load();
@@ -106,7 +108,7 @@ BF_GUI_AttrDialog_Menu::Load()
 	uRes = oSrcFile.InitCheck();
 	if(B_OK!=uRes){
 		BL_System_TranslError(uRes,s);
-		BF_Dialog_Alert(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_ATTRDLG_OPENERROR),NULL,s.String());
+		BF_Dialog_Alert(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_ATTRDLG_OPENERROR),NULL,s.String());
 		return;		
 	}	
 	/* clear list */
@@ -198,7 +200,7 @@ void BF_GUI_AttrDialog_Run(BF_Path & o_Path,BF_Node & o_Node,BView *po_Owner)
 	oMessage.AddPointer("bf_focus",po_Owner);	
 	/* make dialog */
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(oRect,
-		BF_DictAt(BF_DICT_ATTRDLG_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL);
+		B_TRANSLATE(BF_DICT_ATTRDLG_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_RESIZE_ALL);
 
 	poDialog->MoveToCenter( poWinView );	
 
@@ -218,7 +220,7 @@ void BF_GUI_AttrDialog_Run(BF_Path & o_Path,BF_Node & o_Node,BView *po_Owner)
 	oRect.top = oRect.bottom+10;	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight+2;	
 	BL_List *ploItem = new BL_List();
-	ploItem->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CLOSE),""));
+	ploItem->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CLOSE),""));
 	BF_GUI_DlgView_HMenu *poMenu = new BF_GUI_DlgView_HMenu(oRect,"menu",B_FOLLOW_BOTTOM|B_FOLLOW_LEFT_RIGHT,ploItem);
 	poDialog->AddChild(poMenu);				
 	/* finish */	

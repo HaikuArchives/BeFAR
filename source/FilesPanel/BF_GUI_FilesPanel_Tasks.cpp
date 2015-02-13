@@ -7,6 +7,9 @@
 #include "BF_Dict.h"
 #include "BF_Roster.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Tasks"
+
 BF_GUI_FilesPanel_Task::BF_GUI_FilesPanel_Task(const char *pc_Name,int32 i_Styles)
 :BF_GUI_OperTask(pc_Name,i_Styles)
 {
@@ -26,7 +29,7 @@ BF_GUI_FilesPanel_Task::RenameNodes(
 	
 		// check drive for read_only //
 	if(o_SrcPath.IsVolumeReadOnly()){
-		Ask_Error(BF_DictAt(BF_DICT_TASKS_READONLYVOL),false);
+		Ask_Error(B_TRANSLATE(BF_DICT_TASKS_READONLYVOL),false);
 		return;
 	}
 
@@ -36,7 +39,7 @@ BF_GUI_FilesPanel_Task::RenameNodes(
 	{// has not mask_chars
 		// check count 
 		if(lo_Node.CountItems()>1){
-			Ask_Error(BF_DictAt(BF_DICT_TASKS_ONENAMEMANYFILES),false,s_NewName.String());
+			Ask_Error(B_TRANSLATE(BF_DICT_TASKS_ONENAMEMANYFILES),false,s_NewName.String());
 			return;
 		}
 	}	
@@ -71,7 +74,7 @@ BF_GUI_FilesPanel_Task::Check_DestFolder(BF_FilesPath &oPathDest)
 {
 	// check dest_path for normal rules 
 	if(!oPathDest.IsStorageKit()){
-		Ask_Error(BF_DictAt(BF_DICT_TASKS_DESTFOLDERNAMEWRONG),false,oPathDest.Path());
+		Ask_Error(B_TRANSLATE(BF_DICT_TASKS_DESTFOLDERNAMEWRONG),false,oPathDest.Path());
 		return false;		
 	}
 	
@@ -79,23 +82,23 @@ BF_GUI_FilesPanel_Task::Check_DestFolder(BF_FilesPath &oPathDest)
 	if(!oPathDest.IsExisting())
 	{// not exist,create  it ? //
 		BL_List	*ploMenu = new BL_List();
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_TASKS_CREATEITNOW),""));
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),""));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_TASKS_CREATEITNOW),""));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),""));
 		
 		// ask question 		
-		if(1==Ask_Message(BF_DictAt(BF_DICT_TASKS_DESTFOLDERNOTEXIST),ploMenu)) return false;
+		if(1==Ask_Message(B_TRANSLATE(BF_DICT_TASKS_DESTFOLDERNOTEXIST),ploMenu)) return false;
 		// try to create 
 		status_t uRes = oPathDest.Create();
 		// check result of creating
 		if(uRes!=B_OK){
-			Ask_Error(BF_DictAt(BF_DICT_TASKS_CANTMAKEFOLDER),false,oPathDest.Path());
+			Ask_Error(B_TRANSLATE(BF_DICT_TASKS_CANTMAKEFOLDER),false,oPathDest.Path());
 			return false;
 		}				
 	}
 		
 	// check drive for read_only //
 	if(oPathDest.IsVolumeReadOnly()){
-		Ask_Error(BF_DictAt(BF_DICT_TASKS_DESTVOLREADONLY),false);
+		Ask_Error(B_TRANSLATE(BF_DICT_TASKS_DESTVOLREADONLY),false);
 		return false;
 	}
 	
@@ -150,7 +153,7 @@ BF_GUI_FilesPanel_DeleteTask::PrepareTrashPath()
 		sTrashPath<<"/RECYCLED/_BEOS_";
 		if(!BF_Roster_NodeExists(sTrashPath.String())){
 			if(B_OK!=BF_Roster_MakeDir(sTrashPath.String())){
-				s=BF_DictAt(BF_DICT_TASKS_CANTMAKETRASH);
+				s=B_TRANSLATE(BF_DICT_TASKS_CANTMAKETRASH);
 				s<<sTrashPath.String();
 				ASSERT(false,s.String());
 			}
@@ -205,8 +208,8 @@ BF_GUI_FilesPanel_DeleteTask::DeleteList(BF_NodeCollection & lo_Node)
 				BL_System_TranslError(uRes,s);
 
 				BL_List	*ploMenu = new BL_List();
-				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_TRYAGAIN),"try"));
-				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_SKIP),"skip"));
+				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_TRYAGAIN),"try"));
+				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_SKIP),"skip"));
 				
 				if(1==Ask_Message(s.String(),ploMenu)) break;
 			}
@@ -233,11 +236,11 @@ BF_GUI_FilesPanel_DeleteTask::CheckFolder_ForSys(const char *pc_Folder)
 		
 		// prepare menu_buttons //
 		BL_List *ploMenu = new BL_List();
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_YES),"yes"));
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_NO),"no"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_YES),"yes"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_NO),"no"));
 		
 		// ask //
-		int32 iResult = Ask_Message(BF_DictAt(BF_DICT_TASKS_SYSFOLDERDELETE),ploMenu,pc_Folder);
+		int32 iResult = Ask_Message(B_TRANSLATE(BF_DICT_TASKS_SYSFOLDERDELETE),ploMenu,pc_Folder);
 		if(iResult!=0) return false;
 		
 	}
@@ -249,7 +252,7 @@ BF_GUI_FilesPanel_DeleteTask::Run()
 {
 	// check drive for read_only //
 	if(oPath.IsVolumeReadOnly()){
-		Ask_Error(BF_DictAt(BF_DICT_TASKS_READONLYVOL),false);
+		Ask_Error(B_TRANSLATE(BF_DICT_TASKS_READONLYVOL),false);
 		return;
 	}	
 
@@ -273,7 +276,7 @@ BF_GUI_FilesPanel_CopyTask::BF_GUI_FilesPanel_CopyTask(
 	BF_FilesPath& o_PathDest,	
 	BF_NodeCollection & lo_Node,
 	bool b_FilesMove
-):BF_GUI_FilesPanel_Task(BF_DictAt(BF_DICT_TASKS_COPYINGFILES))
+):BF_GUI_FilesPanel_Task(B_TRANSLATE(BF_DICT_TASKS_COPYINGFILES))
 {	bFilesMove = b_FilesMove;
 	oPathSrc = o_PathSrc;
 	oPathDest = o_PathDest;
@@ -286,9 +289,9 @@ BF_GUI_FilesPanel_CopyTask::BF_GUI_FilesPanel_CopyTask(
 	// set new name //
 	{
 		BL_String s;
-		s = BF_DictAt(BF_DICT_TASKS_COPYINGFILESFROM);
+		s = B_TRANSLATE(BF_DICT_TASKS_COPYINGFILESFROM);
 		s << oPathSrc.LastDir();
-		s << BF_DictAt(BF_DICT_TASKS_COPYINGFILESTO);
+		s << B_TRANSLATE(BF_DICT_TASKS_COPYINGFILESTO);
 		s << oPathDest.LastDir();
 		sName = s;
 	}	
@@ -519,13 +522,13 @@ BF_GUI_FilesPanel_CopyTask::Move_Nodes()
 			uRes = BF_Roster_MoveNode(oPathSrc,poNode,oPathDest.Path());
 			if(uRes==B_OK) break;
 			if(B_FILE_EXISTS == uRes){
-				BL_String s(BF_DictAt(BF_DICT_TASKS_DESTFILE));
+				BL_String s(B_TRANSLATE(BF_DICT_TASKS_DESTFILE));
 				s<<poNode->sName;
-				s<<BF_DictAt(BF_DICT_TASKS_DESTFILEEXIST);
+				s<<B_TRANSLATE(BF_DICT_TASKS_DESTFILEEXIST);
 				BL_List *ploMenu= new BL_List();
-				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OWERWRITE),"") );
-				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_SKIP),"") );
-				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCELALL),"") );
+				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OWERWRITE),"") );
+				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_SKIP),"") );
+				ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCELALL),"") );
 				int iRes = Ask_Message(s.String(),ploMenu);
 				if(iRes==0){
 					// delete dest_file //
@@ -537,7 +540,7 @@ BF_GUI_FilesPanel_CopyTask::Move_Nodes()
 					i = loNode.CountItems()+1;													
 				}
 			}else{
-				BL_String s(BF_DictAt(BF_DICT_TASKS_CANTMOVE)),s1;
+				BL_String s(B_TRANSLATE(BF_DICT_TASKS_CANTMOVE)),s1;
 				BL_System_TranslError(uRes,s1);	
 				s<<poNode->sName;							
 				if(BF_GUI_OPERTASK_ERROR_CANCEL_ALL==Ask_Error(s.String(),true,s1.String()) ){				
@@ -617,7 +620,7 @@ BF_GUI_FilesPanel_ChangeCaseTask::Run()
 {
 	// check drive for read_only //
 	if(oPath.IsVolumeReadOnly()){
-		Ask_Error(BF_DictAt(BF_DICT_TASKS_READONLYVOL),false);
+		Ask_Error(B_TRANSLATE(BF_DICT_TASKS_READONLYVOL),false);
 		return;
 	}	
 
@@ -690,14 +693,14 @@ BF_GUI_FilesPanel_MakeLinksTask::Run()
 		{// path begin from /
 			if(s.FindFirst("*")>=0)
 			{// path include * 
-				Ask_Error(BF_DictAt(BF_DICT_TASKS_CANTMAKERENAME),false);
+				Ask_Error(B_TRANSLATE(BF_DICT_TASKS_CANTMAKERENAME),false);
 				return;		
 			}						
 		}else
 		{// path dosn`t begin from /
 			if(s.FindFirst("/")>0)
 			{// path include /
-				Ask_Error(BF_DictAt(BF_DICT_TASKS_CANTMAKEINFOLDER),false,s.String());
+				Ask_Error(B_TRANSLATE(BF_DICT_TASKS_CANTMAKEINFOLDER),false,s.String());
 				return;
 			}			
 			// ? mask with * 
@@ -708,7 +711,7 @@ BF_GUI_FilesPanel_MakeLinksTask::Run()
 			}else{
 				// fuck,mask without *				
 				if(loNode.CountItems()>1){
-					Ask_Error(BF_DictAt(BF_DICT_TASKS_CANTMAKELINKONENAME),false,s.String());
+					Ask_Error(B_TRANSLATE(BF_DICT_TASKS_CANTMAKELINKONENAME),false,s.String());
 					return;	
 				}else{
 					// ok, we must make only one link
@@ -744,9 +747,9 @@ BF_GUI_FilesPanel_MakeLinksTask::Run()
 		
 		uRes = BF_Roster_MakeLink(sSrc.String(),sDest.String());
 		if(B_FILE_EXISTS==uRes){
-			s=BF_DictAt(BF_DICT_TASKS_DESTFILE);
+			s=B_TRANSLATE(BF_DICT_TASKS_DESTFILE);
 			s<<poNode->sName;
-			s<<BF_DictAt(BF_DICT_TASKS_DESTFILEEXIST);
+			s<<B_TRANSLATE(BF_DICT_TASKS_DESTFILEEXIST);
 			if(BF_GUI_OPERTASK_ERROR_CANCEL_ALL==Ask_Error(s.String())) return;
 		}else
 		if(uRes!=B_OK){

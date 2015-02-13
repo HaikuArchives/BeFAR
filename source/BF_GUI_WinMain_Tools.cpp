@@ -4,6 +4,9 @@
 #include "BF_GUI_DlgViews.h"
 #include "BF_GUI_FilesPanel_Tasks.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "WinMain_Tools"
+
 ////////////////////////////////////////////////////////////////////////
 void
 BF_GUI_ViewMain::Action_MountVolumes()
@@ -161,7 +164,7 @@ BF_GUI_ViewMain::Action_SelVolume_Start(bool b_LeftPos)
 		if(bShowIcons) fMaxWidth+=19;	
 	}	
 	/* check width */
-	const char *pcWinTitle = BF_DictAt(BF_DICT_VOLUMEDIALOG_TITLE);
+	const char *pcWinTitle = B_TRANSLATE(BF_DICT_VOLUMEDIALOG_TITLE);
 	{
 		float fTitleWidth = poSysSetup->oFontToolView.oFont.StringWidth(pcWinTitle)+40;
 		if(fTitleWidth>fMaxWidth) fMaxWidth = fTitleWidth;
@@ -227,12 +230,12 @@ BF_GUI_ViewMain::Action_LoadSavePalete(bool b_Load)
 	oMessage.AddPointer("bf_oldfocus",poWin->CurrentFocus());
 			
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(b_Load?BF_DICT_PAL_LOAD:BF_DICT_PAL_SAVE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+		B_TRANSLATE(b_Load?BF_DICT_PAL_LOAD:BF_DICT_PAL_SAVE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 	BRect oRect;	
 	/* insert edit */
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PAL_FILENAME),poDialog,"bf_cName",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PAL_FILENAME),poDialog,"bf_cName",
 					"untitled",	B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	/* menu */								
 	poDialog->AddOkCancelMenu(oRect);	
@@ -319,7 +322,7 @@ BF_GUI_ViewMain::Action_SelectDict()
 	oMessage.AddPointer("bf_panel_focus",(void*)poWin->CurrentFocus());
 			
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_SELDICT_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
+		B_TRANSLATE(BF_DICT_SELDICT_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
 	BRect oRect;	
 	/* insert edit */
 	poDialog->LocalBounds(oRect);	

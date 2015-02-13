@@ -19,6 +19,9 @@
 
 #define INFO_SIZE	30 
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "NodePanel"
+
 BF_GUI_NodePanel::BF_GUI_NodePanel(
 	const BRect & o_Rect,
 	bool b_WinPos_OnLeft)
@@ -63,7 +66,7 @@ BF_GUI_NodePanel::BF_GUI_NodePanel(
 		loNode.AddItem(poNode);
 	}
 	//
-	sDictDir = BF_DictAt(BF_DICT_PANEL_DIR);
+	sDictDir = B_TRANSLATE(BF_DICT_PANEL_DIR);
 }
 
 BF_GUI_NodePanel::~BF_GUI_NodePanel()
@@ -262,9 +265,9 @@ BF_GUI_NodePanel::DrawListInfo(bool b_DrawBack)
 	BL_String s;
 	s<<loNode.SizeAll(false);	
 	s.SetDigits();
-	s<<BF_DictAt(BF_DICT_PANEL_BYTESIN);
+	s<<B_TRANSLATE(BF_DICT_PANEL_BYTESIN);
 	s<<loNode.CountRealNodes();
-	s<<BF_DictAt(BF_DICT_PANEL_FILES);
+	s<<B_TRANSLATE(BF_DICT_PANEL_FILES);
 	DrawBottom(s.String(), b_DrawBack);
 }
 
@@ -346,9 +349,9 @@ BF_GUI_NodePanel::DrawSelListInfo(bool b_DrawBack)
 	if(iCount){
 		s<<iBytes;	
 		s.SetDigits();
-		s<<BF_DictAt(BF_DICT_PANEL_BYTESIN);
+		s<<B_TRANSLATE(BF_DICT_PANEL_BYTESIN);
 		s<<iCount;
-		s<<BF_DictAt(BF_DICT_PANEL_FILES);
+		s<<B_TRANSLATE(BF_DICT_PANEL_FILES);
 	    float fWidth = poSysSetup->oFontNode.oFont.StringWidth(s.String());		
 		float fLeft = (oRect.Width() - fWidth)/2;
 		/* draw lines */		
@@ -392,7 +395,7 @@ BF_GUI_NodePanel::DrawColTitles()
 		for(uint i=0;i<iColsColCount;i++){
 			/* header 'SmallIcon' */			
 			/* header 'Name' */
-			DrawStringCenter(BF_DictAt(BF_DICT_PANEL_COL_NAME),oPoint,fColsColWidth);			
+			DrawStringCenter(B_TRANSLATE(BF_DICT_PANEL_COL_NAME),oPoint,fColsColWidth);			
 			oPoint.x+=fColsColWidth;
 		}
 		break;}
@@ -411,21 +414,21 @@ BF_GUI_NodePanel::DrawColTitles()
 			oPoint.x+=fFullSIcon;
 		}
 		/* header 'Name' */
-		DrawStringCenter(BF_DictAt(BF_DICT_PANEL_COL_NAME),oPoint,fFullName);			
+		DrawStringCenter(B_TRANSLATE(BF_DICT_PANEL_COL_NAME),oPoint,fFullName);			
 		oPoint.x+=fFullName;
 		/* header 'type' */
 		if(iModeFullStyles & BF_NODEPANEL_FULL_TYPE){	
-			DrawStringCenter(BF_DictAt(BF_DICT_PANEL_COL_TYPE),oPoint,fFullType);			
+			DrawStringCenter(B_TRANSLATE(BF_DICT_PANEL_COL_TYPE),oPoint,fFullType);			
 			oPoint.x+=fFullType;			
 		}		
 		/* header 'Size' */
 		if(iModeFullStyles & BF_NODEPANEL_FULL_SIZE){	
-			DrawStringCenter(BF_DictAt(BF_DICT_PANEL_COL_SIZE),oPoint,fFullSize);			
+			DrawStringCenter(B_TRANSLATE(BF_DICT_PANEL_COL_SIZE),oPoint,fFullSize);			
 			oPoint.x+=fFullSize;			
 		}	
 		/* header 'Date' */
 		if(iModeFullStyles & BF_NODEPANEL_FULL_DATE){
-			DrawStringCenter(BF_DictAt(BF_DICT_PANEL_COL_DATE),oPoint,fFullDate);
+			DrawStringCenter(B_TRANSLATE(BF_DICT_PANEL_COL_DATE),oPoint,fFullDate);
 			oPoint.x+=fFullDate;
 		}
 		/**/	
@@ -895,31 +898,31 @@ BF_GUI_NodePanel::PrepareTopMenuItem(BF_GUI_TopMenu_HItem *po_HItem)
 		poMessage->AddPointer("bf_view",this);
 		const char *pc=NULL;
 		switch(i){
-		case 0:	pc = BF_DictAt(BF_DICT_MENU_SORTNAME);break;
-		case 1:	pc = BF_DictAt(BF_DICT_MENU_SORTSIZE);break;
-		case 2:	pc = BF_DictAt(BF_DICT_MENU_SORTDATE);break;
-		case 3:	pc = BF_DictAt(BF_DICT_MENU_SORTTYPE);break;
-		case 4:	pc = BF_DictAt(BF_DICT_MENU_SORTEXT);break;
+		case 0:	pc = B_TRANSLATE(BF_DICT_MENU_SORTNAME);break;
+		case 1:	pc = B_TRANSLATE(BF_DICT_MENU_SORTSIZE);break;
+		case 2:	pc = B_TRANSLATE(BF_DICT_MENU_SORTDATE);break;
+		case 3:	pc = B_TRANSLATE(BF_DICT_MENU_SORTTYPE);break;
+		case 4:	pc = B_TRANSLATE(BF_DICT_MENU_SORTEXT);break;
 		default:	ASSERT(FALSE);
 		}
 		po_HItem->loVItem.AddItem(new BF_GUI_TopMenu_VItem(pc,poMessage,pcSortKeyTitle[i]));			
 	}
 	po_HItem->AddHItem("",NULL);
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_SHOWHIDE_ICONS),BF_MSG_NODEPANEL_SHOW_ICONS,this,"Alt+P");		
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_SHOWHIDE_ICONS),BF_MSG_NODEPANEL_SHOW_ICONS,this,"Alt+P");		
 	
 	{
 		BMessage *poMessage = new BMessage(BF_MSG_NODEPANEL_COLSMODE_SET_COLSCOUNT);
 		poMessage->AddInt32("iCount",0);	
 		poMessage->AddPointer("bf_view",this);
-		po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_FULLMODE),poMessage,"Alt+0");
+		po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_FULLMODE),poMessage,"Alt+0");
 	}
 	{
 		BMessage *poMessage = new BMessage(BF_MSG_NODEPANEL_COLSMODE_SET_COLSCOUNT);
 		poMessage->AddInt32("iCount",3);	
 		poMessage->AddPointer("bf_view",this);
-		po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_COLSMODE),poMessage,"Alt+1..9");
+		po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_COLSMODE),poMessage,"Alt+1..9");
 	}
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_PANELSETUP),BF_MSG_NODEPANEL_SETUP_0,this);
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_PANELSETUP),BF_MSG_NODEPANEL_SETUP_0,this);
 		
 	//po_HItem->loVItem.AddItem(new BF_GUI_TopMenu_VItem("Cols mode","vmode_cols","Alt+1..9"));
 //	po_HItem->loVItem.AddItem(new BF_GUI_TopMenu_VItem());
@@ -1205,7 +1208,7 @@ BF_GUI_NodePanel::MessageReceived(BMessage* po_Message)
 		*/
 			
 		if(sNewName==""){
-			BF_Dialog_Alert_Sep("Error",BF_DictAt(BF_DICT_PANEL_FILEEMPTYNAME),NULL,this);
+			BF_Dialog_Alert_Sep("Error",B_TRANSLATE(BF_DICT_PANEL_FILEEMPTYNAME),NULL,this);
 			return;
 		}	
 		ActionRename_Run(loOpNode,sNewName);
@@ -1702,9 +1705,9 @@ BF_GUI_NodePanel::NavSelectAll_0(int32 i_Key)
 	//
 	BString sTitle;
 	switch(i_Key){
-	case BL_KEY_MUL :	sTitle=BF_DictAt(BF_DICT_PANEL_SEL_INVERT);break;
-	case BL_KEY_PLUS :	sTitle=BF_DictAt(BF_DICT_PANEL_SEL_SET);break;		
-	case BL_KEY_MINUS :	sTitle=BF_DictAt(BF_DICT_PANEL_SEL_UNSET);break;			
+	case BL_KEY_MUL :	sTitle=B_TRANSLATE(BF_DICT_PANEL_SEL_INVERT);break;
+	case BL_KEY_PLUS :	sTitle=B_TRANSLATE(BF_DICT_PANEL_SEL_SET);break;		
+	case BL_KEY_MINUS :	sTitle=B_TRANSLATE(BF_DICT_PANEL_SEL_UNSET);break;			
 	};
 	oMessage.AddInt32("bf_iKey",i_Key);		
 	/* */
@@ -1716,14 +1719,14 @@ BF_GUI_NodePanel::NavSelectAll_0(int32 i_Key)
 	/* insert edit */
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PANEL_MASK),poDialog,"edit",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PANEL_MASK),poDialog,"edit",
 					sNodeSelMask.String(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	/* insert check */
 	oRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 	BF_GUI_ViewCheck *poCheck = new BF_GUI_ViewCheck(oRect,"dir_also",
-					BF_DictAt(BF_DICT_PANEL_FOLDERALSO),bSelectDirAlso,
+					B_TRANSLATE(BF_DICT_PANEL_FOLDERALSO),bSelectDirAlso,
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	poDialog->AddChild(poCheck);
 	/* menu */
@@ -1794,7 +1797,7 @@ BF_GUI_NodePanel::PanelSetup_0()
 	BF_GUI_Func_PanelsEnable(false);
 	/* make dialog */	
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,200,0),
-		BF_DictAt(BF_DICT_PANEL_SETUP),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
+		B_TRANSLATE(BF_DICT_PANEL_SETUP),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
 	/* resize dialog */	
 	BRect oRect;
 	poDialog->LocalBounds(oRect);		
@@ -1803,7 +1806,7 @@ BF_GUI_NodePanel::PanelSetup_0()
 	//roRect.top = oRect.bottom+5;
 	oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 	poCheck = new BF_GUI_ViewCheck(oRect,"show_icons",
-					BF_DictAt(BF_DICT_PANEL_SHOWICONS),ModeShowSIcon(),
+					B_TRANSLATE(BF_DICT_PANEL_SHOWICONS),ModeShowSIcon(),
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	poDialog->AddChild(poCheck);		
 	/* full_mode */
@@ -1813,21 +1816,21 @@ BF_GUI_NodePanel::PanelSetup_0()
 		oRect.top = oRect.bottom+5;
 		oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 		poCheck = new BF_GUI_ViewCheck(oRect,"full_date",
-					BF_DictAt(BF_DICT_PANEL_SHOWDATES),iModeFullStyles & BF_NODEPANEL_FULL_DATE,
+					B_TRANSLATE(BF_DICT_PANEL_SHOWDATES),iModeFullStyles & BF_NODEPANEL_FULL_DATE,
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		poDialog->AddChild(poCheck);
 		// size	
 		oRect.top = oRect.bottom+5;
 		oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 		poCheck = new BF_GUI_ViewCheck(oRect,"full_size",
-					BF_DictAt(BF_DICT_PANEL_SHOWSIZES),iModeFullStyles & BF_NODEPANEL_FULL_SIZE,
+					B_TRANSLATE(BF_DICT_PANEL_SHOWSIZES),iModeFullStyles & BF_NODEPANEL_FULL_SIZE,
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		poDialog->AddChild(poCheck);		
 		// type
 		oRect.top = oRect.bottom+5;
 		oRect.bottom = oRect.top + poSysSetup->oFontToolView.fHeight;
 		poCheck = new BF_GUI_ViewCheck(oRect,"full_type",
-					BF_DictAt(BF_DICT_PANEL_SHOWTYPES),iModeFullStyles & BF_NODEPANEL_FULL_TYPE,
+					B_TRANSLATE(BF_DICT_PANEL_SHOWTYPES),iModeFullStyles & BF_NODEPANEL_FULL_TYPE,
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		poDialog->AddChild(poCheck);		
 		break;}
@@ -1886,12 +1889,12 @@ BF_GUI_NodePanel::ActionMakeDir_Start()
 	oMessage.AddPointer("bf_focus",this);
 			
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_PANEL_CREATEFOLDER_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_NONE);
+		B_TRANSLATE(BF_DICT_PANEL_CREATEFOLDER_TITLE),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_NONE);
 	BRect oRect;	
 	/* insert edit */
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_NAME),poDialog,"bf_cName",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_NAME),poDialog,"bf_cName",
 					"New folder",
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	/* menu */								
@@ -1934,20 +1937,20 @@ BF_GUI_NodePanel::ActionCopyTo_Start()
 		oMessage.AddInt32(BF_NODEPANEL_COPY_NOTETYPES_FIELD,BF_NODELIST_NODETYPE_ALL);
 				
 		BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-			BF_DictAt(BF_DICT_COPYTO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
+			B_TRANSLATE(BF_DICT_COPYTO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
 		BRect oRect;	
 		/* insert edit */
 		poDialog->LocalBounds(oRect);	
 		oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-		BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PATH),poDialog,"bf_cPath",
+		BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PATH),poDialog,"bf_cPath",
 						sDestPath.String(),
 						B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		// menu 
 		{
 			BL_List	*ploMenu = new BL_List();
-			ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_OK),"ok"));
-			ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
-			ploMenu->AddItem(new BF_GUI_NodePanel_Copy_SpecialItem(BF_DictAt(BF_DICT_SPECIAL),"special",poDialog->Message()));
+			ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_OK),"ok"));
+			ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
+			ploMenu->AddItem(new BF_GUI_NodePanel_Copy_SpecialItem(B_TRANSLATE(BF_DICT_SPECIAL),"special",poDialog->Message()));
 			poDialog->AddMenu(oRect,ploMenu);
 		}
 		
@@ -1989,12 +1992,12 @@ BF_GUI_NodePanel::ActionMoveTo_Start()
 		oMessage.AddPointer("bf_focus",this);
 				
 		BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-			BF_DictAt(BF_DICT_MOVETO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
+			B_TRANSLATE(BF_DICT_MOVETO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);	
 		BRect oRect;	
 		/* insert edit */
 		poDialog->LocalBounds(oRect);	
 		oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-		BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PATH),poDialog,"bf_cPath",
+		BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PATH),poDialog,"bf_cPath",
 						sDestPath.String(),
 						B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		/* menu */								
@@ -2023,9 +2026,9 @@ BF_GUI_NodePanel::ActionDelete_Start()
 {
 	if(poSysSetup->MainStyle() & BF_SETUP_MAIN_ASK_DELETE){		
 		BL_List *ploMenu = new BL_List();
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_YES),"yes"));
-		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_NO),"no"));
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_QUESTIONS),BF_DictAt(BF_DICT_PANEL_DELETEFILES),
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_YES),"yes"));
+		ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_NO),"no"));
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_QUESTIONS),B_TRANSLATE(BF_DICT_PANEL_DELETEFILES),
 			ploMenu,this,NULL,BF_MSG_NODEPANEL_DELETE_RUN);
 	}else{
 		BF_NodeCollection* ploSel = Nodes_GetSelecting();
@@ -2047,7 +2050,7 @@ BF_GUI_NodePanel::ActionRename_Start()
 	BL_String			s;
 	
 	if(iSelCount==0 && !poNode){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_WARNING),BF_DictAt(BF_DICT_PANEL_PANELEMPTY),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_WARNING),B_TRANSLATE(BF_DICT_PANEL_PANELEMPTY),NULL,this);
 		return;
 	}
 	/*
@@ -2064,13 +2067,13 @@ BF_GUI_NodePanel::ActionRename_Start()
 	oMessage.AddString("bf_cOldName",iSelCount==0?poNode->Name():"*.*");
 			
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_RENAME),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+		B_TRANSLATE(BF_DICT_RENAME),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 	BRect oRect;	
 	/* insert comment */
 	poDialog->LocalBounds(oRect);		
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
 	if(iSelCount==0){
-		s=BF_DictAt(BF_DICT_PANEL_FROM);
+		s=B_TRANSLATE(BF_DICT_PANEL_FROM);
 		s<<" ";
 		s<<poNode->Name();	
 		poDialog->AddChild(new BF_GUI_ViewText(oRect,"old_name",s.String(),B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_WILL_DRAW,false));
@@ -2078,7 +2081,7 @@ BF_GUI_NodePanel::ActionRename_Start()
 		oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;					
 	}
 	/* insert edit */	
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PANEL_TO),poDialog,"bf_cNewName",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PANEL_TO),poDialog,"bf_cNewName",
 					iSelCount==0?poNode->Name():"*.*",
 					B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);					
 	/* menu */								

@@ -12,8 +12,10 @@
 #include "BF_GUI_ArcPanel.h"
 #include "BF_GUI_TextViewer.h"
 #include "BF_GUI_AttrDialog.h"
-#include <be/app/Clipboard.h>
+#include <Clipboard.h>
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "FilesPanel"
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -125,12 +127,12 @@ BF_GUI_FilesPanel::DrawListInfo(bool b_DrawBack)
 		Draw_OpenTransaction();
 		
 		BL_String s,s1;
-		s=BF_DictAt(BF_DICT_FILES_LOADING);
+		s=B_TRANSLATE(BF_DICT_FILES_LOADING);
 		s<<" ";
 		s1 << iThreadLoading_Index;
 		s1.SetDigits();
 		s<<s1;
-		s << BF_DictAt(BF_DICT_FILES_FROM);
+		s << B_TRANSLATE(BF_DICT_FILES_FROM);
 		s1 = iThreadLoading_Count;
 		s1.SetDigits();
 		s<<s1;		
@@ -158,7 +160,7 @@ BF_GUI_FilesPanel::PathHistory_GoBack()
 	BL_String * ps = (BL_String*)lsPathHistory.ItemAt(lsPathHistory.CountItems()-1);
 	/* check existing of item */
 	if(!ps){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_WARNING),BF_DictAt(BF_DICT_FILES_PATHHIST_EMPTY),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_WARNING),B_TRANSLATE(BF_DICT_FILES_PATHHIST_EMPTY),NULL,this);
 		return;
 	}
 	BF_Path oNewPath(ps->String());
@@ -215,39 +217,39 @@ BF_GUI_FilesPanel::PrepareKeysMenu()
 	if(iKeysModifiers & B_RIGHT_OPTION_KEY){
 		BMessage *po;
 		
-		poSysKeysMenu->SetText(5,BF_DictAt(BF_DICT_FILES_MKLINK));
+		poSysKeysMenu->SetText(5,B_TRANSLATE(BF_DICT_FILES_MKLINK));
 		po = new BMessage(BF_MSG_NODEPANEL_MAKELINK_STARTDIALOG);
 		poSysKeysMenu->SetMessage(5,po,this);			
 		
-		poSysKeysMenu->SetText(6,BF_DictAt(BF_DICT_RENAME));
+		poSysKeysMenu->SetText(6,B_TRANSLATE(BF_DICT_RENAME));
 		po = new BMessage(BF_MSG_NODEPANEL_RENAME_START);
 		poSysKeysMenu->SetMessage(6,po,this);			
 		
-		poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_SEARCH));
+		poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_SEARCH));
 		po = new BMessage(BF_MSG_FILEPANEL_SEARCH_START);
 		poSysKeysMenu->SetMessage(7,po,this);	
 		
-		poSysKeysMenu->SetText(8,BF_DictAt(BF_DICT_FILES_TOVOID));
+		poSysKeysMenu->SetText(8,B_TRANSLATE(BF_DICT_FILES_TOVOID));
 		po = new BMessage(BF_MSG_FILEPANEL_DELETE_VOID);
 		poSysKeysMenu->SetMessage(8,po,this);	
 				
 	}else{
-		poSysKeysMenu->SetText(3,BF_DictAt(BF_DICT_VIEW));
+		poSysKeysMenu->SetText(3,B_TRANSLATE(BF_DICT_VIEW));
 		poSysKeysMenu->SetMessage(3,new BMessage(BF_MSG_FILEPANEL_TEXTVIEWER_START),this);			
 	
-		poSysKeysMenu->SetText(4,BF_DictAt(BF_DICT_EDIT));
+		poSysKeysMenu->SetText(4,B_TRANSLATE(BF_DICT_EDIT));
 		poSysKeysMenu->SetMessage(4,new BMessage(BF_MSG_FILEPANEL_EDIT),this);			
 	
-		poSysKeysMenu->SetText(5,BF_DictAt(BF_DICT_COPY));
+		poSysKeysMenu->SetText(5,B_TRANSLATE(BF_DICT_COPY));
 		poSysKeysMenu->SetMessage(5,new BMessage(BF_MSG_NODEPANEL_COPY_START),this);	
 		
-		poSysKeysMenu->SetText(6,BF_DictAt(BF_DICT_MOVE));
+		poSysKeysMenu->SetText(6,B_TRANSLATE(BF_DICT_MOVE));
 		poSysKeysMenu->SetMessage(6,new BMessage(BF_MSG_NODEPANEL_MOVE_START),this);	
 	
-		poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_FILES_MKDIR));
+		poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_FILES_MKDIR));
 		poSysKeysMenu->SetMessage(7,new BMessage(BF_MSG_NODEPANEL_MAKEDIR_START),this);			
 
-		poSysKeysMenu->SetText(8,BF_DictAt(BF_DICT_FILES_TOTRASH));
+		poSysKeysMenu->SetText(8,B_TRANSLATE(BF_DICT_FILES_TOTRASH));
 		poSysKeysMenu->SetMessage(8,new BMessage(BF_MSG_FILEPANEL_DELETE_TRASH),this);	
 	}
 }
@@ -257,16 +259,16 @@ BF_GUI_FilesPanel::PrepareTopMenuItem(BF_GUI_TopMenu_HItem *po_HItem)
 {
 	BF_GUI_NodePanel::PrepareTopMenuItem(po_HItem);
 	po_HItem->AddHItem("",NULL);
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_SEARCH),BF_MSG_FILEPANEL_SEARCH_START,this,"Ctrl+F7");	
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_CHANGECASE),BF_MSG_FILEPANEL_CHANGE_CASE,this,"");
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_TRACKER_ADDONS),BF_MSG_FILEPANEL_TRACKER_ADDONS_START,this,"Alt+D");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_SEARCH),BF_MSG_FILEPANEL_SEARCH_START,this,"Ctrl+F7");	
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_CHANGECASE),BF_MSG_FILEPANEL_CHANGE_CASE,this,"");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_TRACKER_ADDONS),BF_MSG_FILEPANEL_TRACKER_ADDONS_START,this,"Alt+D");
 	//po_HItem->AddHItem("View image",BF_MSG_FILEPANEL_IMAGEVIEWER_START,this,"Alt+M");	
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_SHOWINFO),BF_MSG_FILEPANEL_SHOW_INFOPANEL,this,"Alt+I");
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_SETOPPATH),BF_MSG_FILEPANEL_SET_FRIENDPATH_TOEQUAL,this,"Alt+U");
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_GOTO),BF_MSG_FILEPANEL_GOPATH_PREPARE,this,"");
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_REFRESH),BF_MSG_FILEPANEL_REFRESH,this,"Alt+R");	
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_SHOWATTRS),BF_MSG_FILEPANEL_SHOW_ATTRDIALOG,this,"Alt+A");	
-	po_HItem->AddHItem(BF_DictAt(BF_DICT_MENU_MAKESHLINK),BF_MSG_FILEPANEL_MAKESH_DIALOG,this,"Alt+S");		
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_SHOWINFO),BF_MSG_FILEPANEL_SHOW_INFOPANEL,this,"Alt+I");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_SETOPPATH),BF_MSG_FILEPANEL_SET_FRIENDPATH_TOEQUAL,this,"Alt+U");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_GOTO),BF_MSG_FILEPANEL_GOPATH_PREPARE,this,"");
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_REFRESH),BF_MSG_FILEPANEL_REFRESH,this,"Alt+R");	
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_SHOWATTRS),BF_MSG_FILEPANEL_SHOW_ATTRDIALOG,this,"Alt+A");	
+	po_HItem->AddHItem(B_TRANSLATE(BF_DICT_MENU_MAKESHLINK),BF_MSG_FILEPANEL_MAKESH_DIALOG,this,"Alt+S");		
 }
 
 bool
@@ -628,12 +630,12 @@ BF_GUI_FilesPanel::ActionMakeDir_Run(BL_String & s_Title)
 {
 	// check zero title
 	if(s_Title==""){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_FILES_MKFOLDEMPTY),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_FILES_MKFOLDEMPTY),NULL,this);
 		return;
 	}	
 	// check drive for read_only //
 	if(oPath.IsVolumeReadOnly()){
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_WARNING),BF_DictAt(BF_DICT_FILES_VOLREAD),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_WARNING),B_TRANSLATE(BF_DICT_FILES_VOLREAD),NULL,this);
 		return;
 	}
 	// 
@@ -644,7 +646,7 @@ BF_GUI_FilesPanel::ActionMakeDir_Run(BL_String & s_Title)
 	status_t uRes = BF_Roster_MakeDir(s.String());
 	if(B_OK!=uRes){
 		BL_System_TranslError(uRes,s);
-		BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_FILES_ERRMKDIR),s.String(),NULL,this);
+		BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_FILES_ERRMKDIR),s.String(),NULL,this);
 	}	
 }
 
@@ -681,13 +683,13 @@ void
 BF_GUI_FilesPanel::Action_ChangeCase_0()
 {
 	BL_List *ploMenu = new BL_List();
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_FILES_TOLOWER),"lower"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_FILES_TOUPPER),"upper"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_FILES_CAPITALISE),"cap"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_FILES_CAPITALISEEW),"cap_ew"));
-	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(BF_DictAt(BF_DICT_CANCEL),"cancel"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_FILES_TOLOWER),"lower"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_FILES_TOUPPER),"upper"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_FILES_CAPITALISE),"cap"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_FILES_CAPITALISEEW),"cap_ew"));
+	ploMenu->AddItem(new BF_GUI_ViewMenu_Item(B_TRANSLATE(BF_DICT_CANCEL),"cancel"));
 	
-	BF_Dialog_Alert_Sep(BF_DictAt(BF_DICT_FILES_CHANGENAMES),"Method:",ploMenu,this,"",BF_MSG_FILEPANEL_CHANGE_CASE_RUN);
+	BF_Dialog_Alert_Sep(B_TRANSLATE(BF_DICT_FILES_CHANGENAMES),"Method:",ploMenu,this,"",BF_MSG_FILEPANEL_CHANGE_CASE_RUN);
 }
 
 void
@@ -720,12 +722,12 @@ BF_GUI_FilesPanel::Action_MakeLinks_StartDialog()
 		oMessage.AddPointer("bf_focus",this);
 				
 		BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-			BF_DictAt(BF_DICT_FILES_MKLINKS),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+			B_TRANSLATE(BF_DICT_FILES_MKLINKS),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 		BRect oRect;	
 		/* insert edit */
 		poDialog->LocalBounds(oRect);	
 		oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-		BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PATH),poDialog,"bf_cPath",
+		BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PATH),poDialog,"bf_cPath",
 						sDestPath.String(),
 						B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		/* menu */								
@@ -811,7 +813,7 @@ BF_GUI_FilesPanel::Action_Run_File(BF_Node *po_Node)
 		//BF_Node *poInfo = BF_Roster_LoadNode(oPath.Path(),po_Node->Name(),BF_ROSTER_LOAD_TYPE|BF_ROSTER_LOAD_LICON);
 		//if(!poInfo){
 		//
-	Action_Alert(BF_DictAt(BF_DICT_ERROR),BF_DictAt(BF_DICT_FILES_CANTRUN));
+	Action_Alert(B_TRANSLATE(BF_DICT_ERROR),B_TRANSLATE(BF_DICT_FILES_CANTRUN));
 	return;
 		//}
 		//delete poInfo;
@@ -899,12 +901,12 @@ BF_GUI_FilesPanel::Action_GoPath_StartDialog()
 		oMessage.AddPointer("bf_focus",this);
 				
 		BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-			BF_DictAt(BF_DICT_GOTO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+			B_TRANSLATE(BF_DICT_GOTO),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 		BRect oRect;	
 		/* insert edit */
 		poDialog->LocalBounds(oRect);	
 		oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-		BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_PATH),poDialog,"bf_cPath",
+		BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_PATH),poDialog,"bf_cPath",
 						"",
 						B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 		/* menu */								

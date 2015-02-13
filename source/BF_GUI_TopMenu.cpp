@@ -4,6 +4,11 @@
 #include "BF_GUI_TopMenu.h"
 #include "BF_GUI_WinMain.h"
 #include "BF_GUI_Func.h"
+
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "TopMenu"
+
 /////////////////////////////////////////////////////////////////////
 BF_GUI_TopMenu* poTopMenu = NULL;
 /////////////////////////////////////////////////////////////////////
@@ -288,32 +293,32 @@ BF_GUI_TopMenu_Run()
 	//////	
 	poPanel = poWinView->PanelOnTop(true);
 	if(poPanel){		
-		poHItem = new BF_GUI_TopMenu_HItem(BF_DictAt(BF_DICT_TOPMENU_LEFT));	
+		poHItem = new BF_GUI_TopMenu_HItem(B_TRANSLATE(BF_DICT_TOPMENU_LEFT));	
 		poPanel->PrepareTopMenuItem(poHItem);
 		poList->AddItem(poHItem);
 	}
 	/////
-	poHItem = new BF_GUI_TopMenu_HItem(BF_DictAt(BF_DICT_TOPMENU_COMMON));		
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_MAINSETUP),BF_MSG_MAINVIEW_MAINSETUP_0,poWinView,"");	
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_EMPTY_TRASH),BF_MSG_MAINVIEW_EMPTY_TRASH,poWinView,"");	
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_COMPARE),BF_MSG_MAINVIEW_COMPART_PANELS,poWinView,"");		
+	poHItem = new BF_GUI_TopMenu_HItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON));		
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_MAINSETUP),BF_MSG_MAINVIEW_MAINSETUP_0,poWinView,"");	
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_EMPTY_TRASH),BF_MSG_MAINVIEW_EMPTY_TRASH,poWinView,"");	
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_COMPARE),BF_MSG_MAINVIEW_COMPART_PANELS,poWinView,"");		
 	poHItem->AddHItem("",0,poWinView,"");		
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_SAVE_SETUP),BF_MSG_MAINVIEW_MAINSETUP_SAVE,poWinView,"");
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_LOAD_SETUP),BF_MSG_MAINVIEW_MAINSETUP_LOAD,poWinView,"");	
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_DEFAULT_SETUP),BF_MSG_MAINVIEW_MAINSETUP_SETDEFAULT,poWinView,"");				
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_SAVE_PALETTE),BF_MSG_MAINVIEW_SAVE_PALLETE,poWinView,"");			
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_LOAD_PALETTE),BF_MSG_MAINVIEW_LOAD_PALLETE,poWinView,"");
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_SAVE_SETUP),BF_MSG_MAINVIEW_MAINSETUP_SAVE,poWinView,"");
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_LOAD_SETUP),BF_MSG_MAINVIEW_MAINSETUP_LOAD,poWinView,"");	
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_DEFAULT_SETUP),BF_MSG_MAINVIEW_MAINSETUP_SETDEFAULT,poWinView,"");				
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_SAVE_PALETTE),BF_MSG_MAINVIEW_SAVE_PALLETE,poWinView,"");			
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_LOAD_PALETTE),BF_MSG_MAINVIEW_LOAD_PALLETE,poWinView,"");
 	poHItem->AddHItem("",0,poWinView,"");
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_SELECTDICT),BF_MSG_MAINVIEW_SELECTDICT,poWinView,"");	
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_SELECTDICT),BF_MSG_MAINVIEW_SELECTDICT,poWinView,"");	
 	poHItem->AddHItem("",0,poWinView,"");			
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_ABOUT),BF_MSG_MAINVIEW_ABOUT,poWinView,"");				
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_ABOUT),BF_MSG_MAINVIEW_ABOUT,poWinView,"");				
 	poHItem->AddHItem("",0,poWinView,"");		
-	poHItem->AddHItem(BF_DictAt(BF_DICT_TOPMENU_COMMON_QUIT),BF_MSG_MAINVIEW_ASK_QUIT,poWinView,"Alt-W,Alt+Q");				
+	poHItem->AddHItem(B_TRANSLATE(BF_DICT_TOPMENU_COMMON_QUIT),BF_MSG_MAINVIEW_ASK_QUIT,poWinView,"Alt-W,Alt+Q");				
 	poList->AddItem(poHItem);	
 	///
 	poPanel = poWinView->PanelOnTop(false);	
 	if(poPanel){		
-		poHItem = new BF_GUI_TopMenu_HItem(BF_DictAt(BF_DICT_TOPMENU_RIGHT));	
+		poHItem = new BF_GUI_TopMenu_HItem(B_TRANSLATE(BF_DICT_TOPMENU_RIGHT));	
 		poPanel->PrepareTopMenuItem(poHItem);
 		poList->AddItem(poHItem);
 	}			

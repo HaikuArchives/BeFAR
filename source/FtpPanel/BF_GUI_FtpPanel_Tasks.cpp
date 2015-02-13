@@ -8,6 +8,8 @@
 #include "BF_GUI_WinMain.h"
 #include "BF_GUI_FtpPanel_Tasks.h"
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "FtpPanel_Tasks"
 
 BF_GUI_FtpPanel_UploadTask::BF_GUI_FtpPanel_UploadTask(
 	BL_String & s_PathSrc,
@@ -165,7 +167,7 @@ BF_GUI_FtpPanel_DownloadTask::BF_GUI_FtpPanel_DownloadTask(
 	BF_GUI_FtpPanel *po_Panel,
 	BF_NodeCollection & lo_Node,
 	bool b_FilesMove
-):BF_GUI_OperTask(BF_DictAt(BF_DICT_FTP_TASKDOWNLOAD),BF_GUI_OPERTASK_STYLE_DEFAULT)
+):BF_GUI_OperTask(B_TRANSLATE(BF_DICT_FTP_TASKDOWNLOAD),BF_GUI_OPERTASK_STYLE_DEFAULT)
 {			
 	iOperIndex = 0;
 	iOperCount = 0;
@@ -307,7 +309,7 @@ BF_GUI_FtpPanel_DownloadTask::Run()
 BF_GUI_FtpPanel_DeleteTask::BF_GUI_FtpPanel_DeleteTask(
 	BF_GUI_FtpPanel *po_Panel,
 	BF_NodeCollection & lo_Node
-):BF_GUI_OperTask(BF_DictAt(BF_DICT_FTP_TASKDEL),BF_GUI_OPERTASK_STYLE_DEFAULT)
+):BF_GUI_OperTask(B_TRANSLATE(BF_DICT_FTP_TASKDEL),BF_GUI_OPERTASK_STYLE_DEFAULT)
 {			
 	iOperIndex = 0;
 	iOperCount = 0;

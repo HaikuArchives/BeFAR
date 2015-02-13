@@ -82,8 +82,8 @@ class BF_GUI_Setup_Color:public BL_Object{
 public:
 		rgb_color				rgb;
 		BL_String				sCode;
-		int32					iDictCode;
-								BF_GUI_Setup_Color(){RGB_SET(rgb,0,0,0);iDictCode=0xffffff;};								
+		const char*				iDictCode;
+								BF_GUI_Setup_Color(){RGB_SET(rgb,0,0,0);iDictCode=NULL;};								
 		void					operator = (BF_GUI_Setup_Color & o_From);
 		void					Save(BF_ConfigFile & o_File);
 };
@@ -174,7 +174,7 @@ public:
 		
 		void					SetMainStyle(uint32 i_Style);
 		
-		void					SetColor(int i_Index,int32	i_DictCode,const char *pc_Code,uint8 i_R,uint8 i_G,uint8 i_B,uint8 i_A=255);
+		void					SetColor(int i_Index,const char*	i_DictCode,const char *pc_Code,uint8 i_R,uint8 i_G,uint8 i_B,uint8 i_A=255);
 		int32					ColorIndexByCode(const char *pc_Code);
 		void					SetColorByCode(BF_GUI_Setup_Color & o_ColFrom);
 		

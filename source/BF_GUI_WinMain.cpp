@@ -573,7 +573,7 @@ BF_GUI_WinMain::BF_GUI_WinMain()
 	poSysSetup->Load(false);	
 	
 	// load dictionary //
-	BF_Dict_Load(poSysSetup->sDictFile.String());
+//	BF_Dict_Load(poSysSetup->sDictFile.String());
 	
 	// set new win_frame //
 	if(poSysSetup->oVars.Loaded()){

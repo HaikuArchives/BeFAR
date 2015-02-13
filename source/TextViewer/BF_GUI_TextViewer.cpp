@@ -23,6 +23,10 @@ Modified:	16 jul 2000
 #include "BF_GUI_Func.h"
 #include "BF_GUI_WinMain.h"
 
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "TextViewer"
+
 ///////////////////////////////////////////////////////////////////////////////////
 BF_TextFile_Line::BF_TextFile_Line(const BL_String & s_Src,off_t i_Pos,int32 i_Bytes)
 {
@@ -201,7 +205,7 @@ BF_GUI_TextViewer_StatusBar::Draw(BRect o_Rect)
 	oPoint.x = 5;
 	oPoint.y = poSysSetup->oFontNode.fAscent;
 	// draw file_pos/size //
-	s=BF_DictAt(BF_DICT_TEXTVIEWER_POS);
+	s=B_TRANSLATE(BF_DICT_TEXTVIEWER_POS);
 	s<<": ";
 	s1=iFilePos;		
 	s<<*s1.SetDigits();
@@ -214,13 +218,13 @@ BF_GUI_TextViewer_StatusBar::Draw(BRect o_Rect)
 	DrawString(s.String(),oPoint);
 	oPoint.x += poSysSetup->oFontNode.oFont.StringWidth(s.String())+10;
 	// draw startcol //	
-	s=BF_DictAt(BF_DICT_TEXTVIEWER_COL);
+	s=B_TRANSLATE(BF_DICT_TEXTVIEWER_COL);
 	s<<":";
 	s<<iStartColumn;
 	DrawString(s.String(),oPoint);
 	oPoint.x += poSysSetup->oFontNode.oFont.StringWidth(s.String())+10;
 	// draw code_page //
-	s = BF_DictAt(BF_DICT_TEXTVIEWER_CP);
+	s = B_TRANSLATE(BF_DICT_TEXTVIEWER_CP);
 	s<<": ";
 	switch(iCodePage){
 	case CP_UTF8:
@@ -242,7 +246,7 @@ BF_GUI_TextViewer_StatusBar::Draw(BRect o_Rect)
 	oPoint.x += poSysSetup->oFontNode.oFont.StringWidth(s.String())+10;
 	// draw file_name //
 	{		
-		s=BF_DictAt(BF_DICT_FILE);
+		s=B_TRANSLATE(BF_DICT_FILE);
 		s<<": ";
 		s<<sFileName;
 		DrawString(s.String(),oPoint);
@@ -372,12 +376,12 @@ BF_GUI_TextViewer::Search_Step0()
 	oMessage.AddPointer("bf_oldfocus",poWin->CurrentFocus());
 			
 	BF_GUI_Dialog *poDialog = new BF_GUI_Dialog(BRect(0,0,300,0),
-		BF_DictAt(BF_DICT_TEXTVIEWER_SEARCH_DLG),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
+		B_TRANSLATE(BF_DICT_TEXTVIEWER_SEARCH_DLG),"dialog",oMessage,BG_GUI_DIALOG_WINRESIZE_MOVE_CENTER);
 	BRect oRect;	
 	/* insert edit */
 	poDialog->LocalBounds(oRect);	
 	oRect.bottom = oRect.top+poSysSetup->oFontToolView.fHeight;
-	BF_GUI_ViewEdit_Create(oRect,BF_DictAt(BF_DICT_TEXTVIEWER_SEARCH_DLGTEXT),poDialog,"bf_cText",
+	BF_GUI_ViewEdit_Create(oRect,B_TRANSLATE(BF_DICT_TEXTVIEWER_SEARCH_DLGTEXT),poDialog,"bf_cText",
 					sSearchText.String(),B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP,B_NAVIGABLE);
 	/* menu */								
 	poDialog->AddOkCancelMenu(oRect);	
@@ -464,7 +468,7 @@ BF_GUI_TextViewer::MessageReceived(BMessage* po_Message)
 	///
 	case BF_MSG_TEXTVIEWER_SHOW_SPEC:{
 		bShowSpec = !bShowSpec;
-		poSysKeysMenu->SetText(9,BF_DictAt(bShowSpec?BF_DICT_TEXTVIEWER_SHOWSPEC:BF_DICT_TEXTVIEWER_HIDESPEC));
+		poSysKeysMenu->SetText(9, bShowSpec ? B_TRANSLATE(BF_DICT_TEXTVIEWER_SHOWSPEC) : B_TRANSLATE(BF_DICT_TEXTVIEWER_HIDESPEC));
 		Invalidate(Bounds());
 		break;}
 	case BF_MSG_TEXTVIEWER_CLOSED:
@@ -585,16 +589,16 @@ BF_GUI_TextViewer::PrepareKeysMenu()
 	poSysKeysMenu->Clear();
 	if (iKeysModifiers & B_LEFT_SHIFT_KEY || iKeysModifiers & B_RIGHT_SHIFT_KEY)
 	{
-		poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_TEXTVIEWER_NEXT));		
+		poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_TEXTVIEWER_NEXT));		
 		poSysKeysMenu->SetMessage(7,new BMessage(BF_MSG_TEXTVIEWER_SEARCH_NEXT),this);
 	}
 	else
 	{
-		poSysKeysMenu->SetText(3,BF_DictAt(BF_DICT_TEXTVIEWER_CLOSE));
-		poSysKeysMenu->SetText(7,BF_DictAt(BF_DICT_SEARCH));
-		poSysKeysMenu->SetText(8,BF_DictAt(BF_DICT_TEXTVIEWER_CODEPAGE));
-		poSysKeysMenu->SetText(9,BF_DictAt(BF_DICT_TEXTVIEWER_SHOWSPEC));
-		poSysKeysMenu->SetText(10,BF_DictAt(BF_DICT_TEXTVIEWER_CLOSE));
+		poSysKeysMenu->SetText(3,B_TRANSLATE(BF_DICT_TEXTVIEWER_CLOSE));
+		poSysKeysMenu->SetText(7,B_TRANSLATE(BF_DICT_SEARCH));
+		poSysKeysMenu->SetText(8,B_TRANSLATE(BF_DICT_TEXTVIEWER_CODEPAGE));
+		poSysKeysMenu->SetText(9,B_TRANSLATE(BF_DICT_TEXTVIEWER_SHOWSPEC));
+		poSysKeysMenu->SetText(10,B_TRANSLATE(BF_DICT_TEXTVIEWER_CLOSE));
 
 		poSysKeysMenu->SetMessage(3,new BMessage(BF_MSG_TEXTVIEWER_CLOSED),this);
 		poSysKeysMenu->SetMessage(7,new BMessage(BF_MSG_TEXTVIEWER_SEARCH),this);
