@@ -30,44 +30,44 @@ TYPE=APP
 #	if two source files with the same name (source.c or source.cpp)
 #	are included from different directories.  Also note that spaces
 #	in folder names do not work well with this makefile.
-SRCS= 	./_BazaLib/BL_File.cpp\
-		./_BazaLib/BL_Tools.cpp\
-		BF_Dict.cpp\
-		BF_GUI_Func.cpp\
-		BF_GUI_NodePanel_Tools.cpp\
-		BF_GUI_NodePanel.cpp\
-		BF_GUI_NodePanel_MoveDraw.cpp\
-		BF_GUI_KeysMenu.cpp\
-		BF_GUI_Setup.cpp\
-		BF_GUI_SetupDialog.cpp\
-		BF_GUI_CmdLine.cpp\
-		BF_GUI_WinMain.cpp\
-		BF_GUI_WinMain_Tools.cpp\
-		BF_GUI_OperRoster.cpp\
-		BF_Node.cpp\
-		BF_Roster.cpp\
-		Main.cpp\
-		BF_GUI_TopMenu.cpp\
-		./_BF_GUI/BF_GUI_Edit.cpp\
-		BF_GUI_DlgViews.cpp\
-		BF_GUI_DlgViews_Menu.cpp\
-		BF_GUI_Misc.cpp\
-		./_FtpPanel/BF_GUI_FilesPanel_Action_MakeSH.cpp\
-		./_FtpPanel/BF_GUI_FilesPanel_InfoPanel.cpp\
-		./_FilesPanel/BF_GUI_FilesPanel.cpp\
-		./_FtpPanel/BF_GUI_FilesPanel_TrackerAddOns.cpp\
-		./_FtpPanel/BF_GUI_FilesPanel_Tasks.cpp\
-		BF_GUI_AttrDialog.cpp\
-		./_Search/BF_GUI_FilesPanel_Search.cpp\
-		./_FtpPanel/BF_GUI_FilesPanel_Monitor.cpp\
-		./_TextViewer/BF_GUI_TextViewer.cpp\
-		./_FtpPanel/BF_GUI_FtpPanel.cpp\
-		./_FtpPanel/BF_GUI_FtpPanel_Tasks.cpp\
-		./_FtpPanel/BF_GUI_FtpPanel_Threads.cpp\
-		./_FtpPanel/FtpClient.cpp\
-		./_ArcPanel/TextFile.cpp\
-		./_ArcPanel/BF_GUI_ArcPanel.cpp\
-		./_ImageViewer/BF_GUI_ImagePanel.cpp\
+SRCS= 	BazaLib/BL_File.cpp \
+		BazaLib/BL_Tools.cpp \
+		BF_Dict.cpp \
+		BF_GUI_Func.cpp \
+		BF_GUI_NodePanel_Tools.cpp \
+		BF_GUI_NodePanel.cpp \
+		BF_GUI_NodePanel_MoveDraw.cpp \
+		BF_GUI_KeysMenu.cpp \
+		BF_GUI_Setup.cpp \
+		BF_GUI_SetupDialog.cpp \
+		BF_GUI_CmdLine.cpp \
+		BF_GUI_WinMain.cpp \
+		BF_GUI_WinMain_Tools.cpp \
+		BF_GUI_OperRoster.cpp \
+		BF_Node.cpp \
+		BF_Roster.cpp \
+		Main.cpp \
+		BF_GUI_TopMenu.cpp \
+		BF_GUI/BF_GUI_Edit.cpp \
+		BF_GUI_DlgViews.cpp \
+		BF_GUI_DlgViews_Menu.cpp \
+		BF_GUI_Misc.cpp \
+		FtpPanel/BF_GUI_FilesPanel_Action_MakeSH.cpp \
+		FtpPanel/BF_GUI_FilesPanel_InfoPanel.cpp \
+		FilesPanel/BF_GUI_FilesPanel.cpp \
+		FtpPanel/BF_GUI_FilesPanel_TrackerAddOns.cpp \
+		FtpPanel/BF_GUI_FilesPanel_Tasks.cpp \
+		BF_GUI_AttrDialog.cpp \
+		Search/BF_GUI_FilesPanel_Search.cpp \
+		FtpPanel/BF_GUI_FilesPanel_Monitor.cpp \
+		TextViewer/BF_GUI_TextViewer.cpp \
+		FtpPanel/BF_GUI_FtpPanel.cpp \
+		FtpPanel/BF_GUI_FtpPanel_Tasks.cpp \
+		FtpPanel/BF_GUI_FtpPanel_Threads.cpp \
+		FtpPanel/FtpClient.cpp \
+		ArcPanel/TextFile.cpp \
+		ArcPanel/BF_GUI_ArcPanel.cpp \
+		ImageViewer/BF_GUI_ImagePanel.cpp \
 		BF_BetaTesting.cpp
 		
 

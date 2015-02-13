@@ -15,8 +15,8 @@ Modified:	07.01.2000
 #include <Application.h>
 #include <Alert.h>
 
-#include "../_BazaLib/BL_Tools.h"
-#include "../_BazaLib/BL_File.h"
+#include "../BazaLib/BL_Tools.h"
+#include "../BazaLib/BL_File.h"
 
 
 void
