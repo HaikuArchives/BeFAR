@@ -1,0 +1,299 @@
+1	English	x-vnd.Baza.BeFar	3052282513
+Deselect after move	SetupDialog		Deselect after move
+Panel : Headers : Text	Setup		Panel : Headers : Text
+Error while file creating	MakeSH		Error while file creating
+sorry, but path_history is empty	FilesPanel		sorry, but path_history is empty
+Panel : Info : Text	Setup		Panel : Info : Text
+Can`t load info	InfoPanel		Can`t load info
+TextViewer : Text	Setup		TextViewer : Text
+Cancel all	Tasks		Cancel all
+file	TextViewer		file
+Make SH-link	MakeSH		Make SH-link
+Dialog : Button : Text	Setup		Dialog : Button : Text
+Search	TextViewer		Search
+on Volumes (use Ins for select)	Search		on Volumes (use Ins for select)
+can`t create palete_file,error : 	Setup		can`t create palete_file,error : 
+Search in progress...	Search		Search in progress...
+Empty trash	TopMenu		Empty trash
+Main setup	SetupDialog		Main setup
+No	NodePanel		No
+Font : Dialog	SetupDialog		Font : Dialog
+Delete	FtpPanel		Delete
+Create folder	NodePanel		Create folder
+from current folder	Search		from current folder
+Close	AttrDialog		Close
+Sort by date	NodePanel		Sort by date
+In folder	MakeSH		In folder
+Command line : show path	SetupDialog		Command line : show path
+Copy question	OperRoster		Copy question
+Loading	FilesPanel		Loading
+Name	AttrDialog		Name
+copying files from /	Tasks		copying files from /
+Show icons	NodePanel		Show icons
+Make links to	FilesPanel		Make links to
+No	Tasks		No
+Panel : Back	Setup		Panel : Back
+Title:	FtpPanel		Title:
+Password:	FtpPanel		Password:
+Font : Command prompt	SetupDialog		Font : Command prompt
+TextViewer : Status bar : back	Setup		TextViewer : Status bar : back
+By text	Search		By text
+Error	TrackerAddOns		Error
+Sorry, but I can`t make links in folder	Tasks		Sorry, but I can`t make links in folder
+Ftp bookmarks	FtpPanel		Ftp bookmarks
+Panel : Node	Setup		Panel : Node
+Invert selection	NodePanel		Invert selection
+Load setup	TopMenu		Load setup
+Skip all errors	OperRoster		Skip all errors
+Edit	FilesPanel		Edit
+To trash	FilesPanel		To trash
+Path	NodePanel		Path
+Sort by size	NodePanel		Sort by size
+Panel : Node : Dir	Setup		Panel : Node : Dir
+User name:	FtpPanel		User name:
+Script name	MakeSH		Script name
+Value	AttrDialog		Value
+Go to	Search		Go to
+Left	TopMenu		Left
+To upper	FilesPanel		To upper
+Compare folders	TopMenu		Compare folders
+Panel : Path : Back	Setup		Panel : Path : Back
+Copy	FtpPanel		Copy
+No	FtpPanel		No
+Rename	NodePanel		Rename
+Ok	NodePanel		Ok
+About...	TopMenu		About...
+Dialog : ProgressBar : Filled	Setup		Dialog : ProgressBar : Filled
+Error	FilesPanel		Error
+Are you crazy ? Name of dest.folder is wrong	Tasks		Are you crazy ? Name of dest.folder is wrong
+ftp error	FtpPanel		ftp error
+Full mode	NodePanel		Full mode
+Common	TopMenu		Common
+Capitalise	FilesPanel		Capitalise
+Panel : FocusPath :  Back	Setup		Panel : FocusPath :  Back
+can`t make setting_file 	FtpPanel		can`t make setting_file 
+Main setup...	TopMenu		Main setup...
+Vol.dialog: show icons	SetupDialog		Vol.dialog: show icons
+Yes	NodePanel		Yes
+File information	InfoPanel		File information
+Owerwrite all	OperRoster		Owerwrite all
+Arguments	MakeSH		Arguments
+Load palette	TopMenu		Load palette
+Sorry, but I can`t make links and rename them at one time.	Tasks		Sorry, but I can`t make links and rename them at one time.
+Cancel	Tasks		Cancel
+Sort by ext	NodePanel		Sort by ext
+Vol.dialog: show home,desktop,boot	SetupDialog		Vol.dialog: show home,desktop,boot
+ PAUSED 	OperRoster		 PAUSED 
+Create it now!	Tasks		Create it now!
+download from ftp	FtpPanel_Tasks		download from ftp
+Special	NodePanel		Special
+Write permission request denied	MakeSH		Write permission request denied
+Name	NodePanel		Name
+can`t find any tracker add-ons	TrackerAddOns		can`t find any tracker add-ons
+total	OperRoster		total
+Are you crazy ? Destination volume is READ_ONLY !	Tasks		Are you crazy ? Destination volume is READ_ONLY !
+MkLink	FilesPanel		MkLink
+Refresh	FilesPanel		Refresh
+ is existing	Tasks		 is existing
+Type	AttrDialog		Type
+Panel : Cursor : Back	Setup		Panel : Cursor : Back
+Unset selection	NodePanel		Unset selection
+Name	Search		Name
+Panel : Node : Dir : Link	Setup		Panel : Node : Dir : Link
+Panel : Node : Selecting	Setup		Panel : Node : Selecting
+CommandLine : Back	Setup		CommandLine : Back
+cp	TextViewer		cp
+Copy	FilesPanel		Copy
+Sorry, but I can`t make all links with one name	Tasks		Sorry, but I can`t make all links with one name
+TextViewer : Status bar : text	Setup		TextViewer : Status bar : text
+<dir>	NodePanel		<dir>
+Change file names	FilesPanel		Change file names
+Show dates	NodePanel		Show dates
+can`t open file; error :	AttrDialog		can`t open file; error :
+Question	NodePanel		Question
+ShowSpec	TextViewer		ShowSpec
+Setup auto saving	SetupDialog		Setup auto saving
+Yes	FtpPanel		Yes
+Disconnect	FtpPanel		Disconnect
+Cancel	FilesPanel		Cancel
+Quit	TopMenu		Quit
+Dialog : Menu : Item selected	Setup		Dialog : Menu : Item selected
+Cancel	OperRoster		Cancel
+Delete this bookmark ?	FtpPanel		Delete this bookmark ?
+copying files	Tasks		copying files
+Set icons from source file	MakeSH		Set icons from source file
+Panel : Frame	Setup		Panel : Frame
+Panel : Path : Text	Setup		Panel : Path : Text
+ from 	FilesPanel		 from 
+Text:	TextViewer		Text:
+delete file(s) from ftp	FtpPanel_Tasks		delete file(s) from ftp
+Read only	InfoPanel		Read only
+ Can`t move file 	Tasks		 Can`t move file 
+Go to	FilesPanel		Go to
+Move to	NodePanel		Move to
+Next	TextViewer		Next
+Make SH-link...	FilesPanel		Make SH-link...
+Size	SetupDialog		Size
+can`t make Trash_Dir 	Tasks		can`t make Trash_Dir 
+can`t make settings dir	FtpPanel		can`t make settings dir
+Panel : Node : Link	Setup		Panel : Node : Link
+File name	Search		File name
+Panel setup...	NodePanel		Panel setup...
+Panel : FocusPath :  Text	Setup		Panel : FocusPath :  Text
+Yes	Tasks		Yes
+Rename	FilesPanel		Rename
+Go to...	FilesPanel		Go to...
+Ok	SetupDialog		Ok
+ files 	NodePanel		 files 
+ftp_panel not ready	FtpPanel		ftp_panel not ready
+Save palette	TopMenu		Save palette
+Ok	OperRoster		Ok
+operations progress	OperRoster		operations progress
+MIME: 	InfoPanel		MIME: 
+Append	OperRoster		Append
+Error while folder opening	MakeSH		Error while folder opening
+Error	FtpPanel		Error
+Perms: 	InfoPanel		Perms: 
+Set opposite path to my	FilesPanel		Set opposite path to my
+command`s history is empty	CmdLine		command`s history is empty
+ bytes in 	NodePanel		 bytes in 
+Searching finished. Founded	Search		Searching finished. Founded
+Cancel all	OperRoster		Cancel all
+Cancel	DlgViews		Cancel
+I can`t make folder with empty name	FilesPanel		I can`t make folder with empty name
+Ftp:Connected	FtpPanel		Ftp:Connected
+Path	FilesPanel		Path
+Ask before exit	SetupDialog		Ask before exit
+Dir	Search		Dir
+Ask before files deleting	SetupDialog		Ask before files deleting
+Search...	FilesPanel		Search...
+Capacity: 	InfoPanel		Capacity: 
+Create	FtpPanel		Create
+can`t load palete_file,error : 	Setup		can`t load palete_file,error : 
+File operations setup	SetupDialog		File operations setup
+This is a system folder. Do you really want to delete it ?	Tasks		This is a system folder. Do you really want to delete it ?
+To	NodePanel		To
+Cols Mode	NodePanel		Cols Mode
+Panel : Cursor : Text	Setup		Panel : Cursor : Text
+Can`t get name of current dir	FtpPanel_Threads		Can`t get name of current dir
+can`t run this command	CmdLine		can`t run this command
+Select language	TopMenu		Select language
+Change case...	FilesPanel		Change case...
+This file exists	MakeSH		This file exists
+I can`t run this file	FilesPanel		I can`t run this file
+CommandLine : Text	Setup		CommandLine : Text
+Free bytes : 	InfoPanel		Free bytes : 
+Code page	TextViewer		Code page
+Panel: show path_icon	SetupDialog		Panel: show path_icon
+Close	TextViewer		Close
+Type	NodePanel		Type
+files	Search		files
+Taskdialog: show after new task	SetupDialog		Taskdialog: show after new task
+Owerwrite	Tasks		Owerwrite
+Vol.dialog: show folder-stack	SetupDialog		Vol.dialog: show folder-stack
+Are you crazy? File can`t has empty name	NodePanel		Are you crazy? File can`t has empty name
+Panel: use backspace	SetupDialog		Panel: use backspace
+Dialog : Edit : Back	Setup		Dialog : Edit : Back
+Flags	SetupDialog		Flags
+Search text	TextViewer		Search text
+Skip	Tasks		Skip
+Error	CmdLine		Error
+ exists	OperRoster		 exists
+Search	Search		Search
+Removeable 	InfoPanel		Removeable 
+Colors and fonts	SetupDialog		Colors and fonts
+Ftp:Dir reloading...	FtpPanel		Ftp:Dir reloading...
+Reload folder	FtpPanel		Reload folder
+Pause/Run	OperRoster		Pause/Run
+Copy to	NodePanel		Copy to
+Ftp:Connecting...	FtpPanel		Ftp:Connecting...
+Store folder not found	MakeSH		Store folder not found
+Dest.file 	Tasks		Dest.file 
+TextViewer : Background : back	Setup		TextViewer : Background : back
+Error while MakeDir	FilesPanel		Error while MakeDir
+To void	FilesPanel		To void
+Edit	FtpPanel		Edit
+File name:	WinMain_Tools		File name:
+ to /	Tasks		 to /
+Show types	NodePanel		Show types
+can`t make settings dir	Setup		can`t make settings dir
+Cancel	NodePanel		Cancel
+Info	OperRoster		Info
+Delete files?	NodePanel		Delete files?
+Debug setup	SetupDialog		Debug setup
+Dialog : Button : Focus	Setup		Dialog : Button : Focus
+Sorry,i can`t make folder	Tasks		Sorry,i can`t make folder
+Sort by name	NodePanel		Sort by name
+To lower	FilesPanel		To lower
+Dialog : UnfocusedBorder	Setup		Dialog : UnfocusedBorder
+Right	TopMenu		Right
+MakeDir	FtpPanel		MakeDir
+Capitalise EW	FilesPanel		Capitalise EW
+Try again	Tasks		Try again
+Select volume	WinMain_Tools		Select volume
+HideSpec	TextViewer		HideSpec
+Minimize[Esc]	OperRoster		Minimize[Esc]
+Skip	OperRoster		Skip
+Edit bookmark	FtpPanel		Edit bookmark
+ of 	OperRoster		 of 
+Dialog : FocusedBorder	Setup		Dialog : FocusedBorder
+Dialog : Back	Setup		Dialog : Back
+Sorry, but I can`t give one name to many files 	Tasks		Sorry, but I can`t give one name to many files 
+Date	NodePanel		Date
+file 	OperRoster		file 
+can`t create file vars.settings,error : 	Setup		can`t create file vars.settings,error : 
+Show info	FilesPanel		Show info
+Host:	FtpPanel		Host:
+Are you crazy ? This volume is READ_ONLY !	Tasks		Are you crazy ? This volume is READ_ONLY !
+Target file	MakeSH		Target file
+Folder also	NodePanel		Folder also
+Search	FilesPanel		Search
+Panel: return to current folder	SetupDialog		Panel: return to current folder
+Cancel	Search		Cancel
+Show attributes...	FilesPanel		Show attributes...
+Owerwrite	OperRoster		Owerwrite
+Tracker Add-Ons menu : show icons	SetupDialog		Tracker Add-Ons menu : show icons
+Dest.folder is not existing	Tasks		Dest.folder is not existing
+pos	TextViewer		pos
+Size: 	InfoPanel		Size: 
+Ask before copy	SetupDialog		Ask before copy
+Size	NodePanel		Size
+Dialog : ProgressBar : Empty	Setup		Dialog : ProgressBar : Empty
+Sorry, but panel is empty	NodePanel		Sorry, but panel is empty
+Warning	NodePanel		Warning
+MkDir	FilesPanel		MkDir
+Dialog : Edit : Text	Setup		Dialog : Edit : Text
+Set selection	NodePanel		Set selection
+Panel setup	NodePanel		Panel setup
+preparing to process	OperRoster		preparing to process
+Show sizes	NodePanel		Show sizes
+File attributes	AttrDialog		File attributes
+Ok	DlgViews		Ok
+Select dictionary_file	WinMain_Tools		Select dictionary_file
+Are you crazy ? This volume is READ_ONLY !	FilesPanel		Are you crazy ? This volume is READ_ONLY !
+Warning	CmdLine		Warning
+Font : Mono	SetupDialog		Font : Mono
+File operations	OperRoster		File operations
+Deselect after coping	SetupDialog		Deselect after coping
+Sort by type	NodePanel		Sort by type
+Error	AttrDialog		Error
+Font : Panel	SetupDialog		Font : Panel
+col	TextViewer		col
+View	FilesPanel		View
+From	NodePanel		From
+Folder:	FtpPanel		Folder:
+Tracker Add-Ons	FilesPanel		Tracker Add-Ons
+Mask	NodePanel		Mask
+Show/Hide icons	NodePanel		Show/Hide icons
+Warning	FilesPanel		Warning
+Move	FilesPanel		Move
+Date: 	InfoPanel		Date: 
+Ftp:Dir changing...	FtpPanel		Ftp:Dir changing...
+Anti aliasing	SetupDialog		Anti aliasing
+Red	Setup		Red
+Panel : Node : Focus&Selecting	Setup		Panel : Node : Focus&Selecting
+Search : setup : show volumes icons	SetupDialog		Search : setup : show volumes icons
+Couldn't connect	FtpPanel_Threads		Couldn't connect
+Set setup to default	TopMenu		Set setup to default
+Dialog : Text	Setup		Dialog : Text
+Save setup	TopMenu		Save setup
