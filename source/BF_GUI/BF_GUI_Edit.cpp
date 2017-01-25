@@ -61,7 +61,7 @@ BF_GUI_ViewEdit::MessageReceived(BMessage* po_Message)
 		if(!be_clipboard->Lock()) return;
 		BMessage 	*po = be_clipboard->Data();
 		const char	*pcData=NULL;
-		int32		iTextLen;		
+		ssize_t		iTextLen;
 		if(!po || B_OK!=po->FindData("text/plain",B_MIME_TYPE,(const void**)&pcData,&iTextLen) || !pcData) return;
 		if(iTextLen<=0) return;
 		
