@@ -871,7 +871,7 @@ BF_GUI_FilesPanel::Action_PasteFromBuffer()
 		BMessage *po = be_clipboard->Data();				
 		
 		const char *pcText;
-		int32 iTextLen=0;;		
+		ssize_t iTextLen=0;
 		status_t uRes = po->FindData("text/plain", B_MIME_TYPE,(const void **)&pcText, &iTextLen);
 		be_clipboard->Commit();
 		be_clipboard->Unlock();
